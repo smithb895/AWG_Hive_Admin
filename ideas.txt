@@ -1,0 +1,43 @@
+================
+[TODO]
+------
++get_player_data.php
+	-parse medical field, show data
+*Search for players within 50m,100m,500m,1km from player's location
+*Dynamically Updates Pos fields in search results and/or currently selected player?
+*list/search vehicles currently on map
+*Log Features:
+	-Show all script restrictions (last day, 12hrs, hour, etc)
+	-Parse logs for player info, store in playerDB
+
+Teleport to Map position:
+-------------------------
++custom jpg/image mapping, javascript libraries?
++dreamweaver? (grid images, set each grid to a link?)
++custom "safe spawn" areas in each grid
++click event handler
+================
+[DONE]
+------
+*set position on map
+*select player, show current gear pulled from hive
++expandable "Find Player" div (jquery, css)
++get_player_data.php
+	-query row where death=0
+	-show queried data in right div (kills, time alive, last update, etc)
+	-parse inventory and backpack fields, put data in divs
+*jQuery updated inventory for currently selected items
+*confirm button to save changes to player
+*options for healing/killing player
+*teleporting player? (input coords manually?)
++create separate form input for inventory string to insert into db, with a non-editable input, normal POST submit (non-ajax)
+
+dayz.main.inventory
+[["ItemFlashlight"|"ItemHatchet"|"AK_47_M"|"M9SD"|"ItemFlashlightRed"|"ItemKnife"|"Binocular"]|["ItemBandage"|"ItemBandage"|"15Rnd_9x19_M9SD"|"15Rnd_9x19_M9SD"|"15Rnd_9x19_M9SD"|"15Rnd_9x19_M9"|"15Rnd_9x19_M9SD"|"ItemPainkiller"|"ItemSodaPepsi"|"30Rnd_762x39_AK47"|"30Rnd_762x39_AK47"|"30Rnd_762x39_AK47"|"ItemMorphine"|"ItemSodaPepsi"|"ItemBloodbag"|"ItemBandage"]]
+
+
+dayz.main.backpack
+["DZ_CivilBackpack_EP1"|[[]|[]]|[["FoodCanPasta"|"ItemHeatPack"|"1Rnd_HE_M203"|"ItemPainkiller"|"ItemSodaCoke"|"ItemSodaPepsi"|"PartWoodPile"|"ItemTent"]|[1|1|1|1|1|1|1|1]]]
+["|[[]|[]]|[[]|[]]]
+["backpack_name"|[["maingun"|"sidearm"]|[1|1]]|[["mag"|"mag"]|[1|2]]]
+["DZ_Backpack_EP1"|[["DMR"]|[1]]|[[]|[]]]

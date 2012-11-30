@@ -1,0 +1,459 @@
+
+/* CSS Stylesheet for AWG DayZ HIVE Admin
+ * Author: Anzu
+*/
+@font-face {
+    font-family: '28DaysLaterRegular';
+    src: url('fonts/28_days_later-webfont.eot');
+    src: url('fonts/28_days_later-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/28_days_later-webfont.woff') format('woff'),
+         url('fonts/28_days_later-webfont.ttf') format('truetype'),
+         url('fonts/28_days_later-webfont.svg#28DaysLaterRegular') format('svg');
+    font-weight: normal;
+}
+/*@font-face {
+    font-family: 'zombiea';
+    src: url('fonts/zombie-webfont.eot');
+    src: url('fonts/zombie-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/zombie-webfont.woff') format('woff'),
+         url('fonts/zombie-webfont.ttf') format('truetype'),
+         url('fonts/zombie-webfont.svg#zombiea') format('svg');
+    font-weight: normal;
+}*/
+@font-face {
+    font-family: 'october_crowregular';
+    src: url('fonts/october_crow-webfont.eot');
+    src: url('fonts/october_crow-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/october_crow-webfont.woff') format('woff'),
+         url('fonts/october_crow-webfont.ttf') format('truetype'),
+         url('fonts/october_crow-webfont.svg#october_crowregular') format('svg');
+    font-weight: normal;
+}
+
+body {
+	background: url('bg/dza_bg1.png') repeat;
+}
+strong {
+	font-weight:900;
+}
+h2 {
+	color: #D00;
+	font-size: 28px;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	font-weight: 400;
+	margin: 10px auto 10px 0;
+}
+#gear_preview h2 {
+	margin-left: 15px;
+	font-size: 26px;
+}
+h3 {
+	color: #E00;
+	font-size: 20px;
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	font-weight: 200;
+	margin: 0 auto 0 6px;
+}
+h4 {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	/*color: #D00;*/
+	/*letter-spacing: 2px;*/
+	/*font-weight: strong;*/
+	/*-*/text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	/*text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);*/
+	/*background: rgba(0, 0, 0, .8);
+	text-shadow:
+		-1px -1px 0 #D00,
+		1px -1px 0 #D00,
+		-1px 1px 0 #D00,
+		1px 1px 0 #D00;*/
+	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
+	text-decoration: underline;
+	color: rgba(210, 0, 0, 1);
+	font-weight: bold;
+	/*text-align: center;*/
+}
+h4:hover {
+	text-shadow: 0px 0px 6px rgba(235, 0, 0, 1);
+	color: rgba(235, 0, 0, 1);
+}
+input {
+	color: #FFF;
+	background: rgba(140, 30, 30, .75);
+	border-color: #A00;
+	width: 150px;
+}
+.buttons1 a {
+	font-size: 22px;
+	text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+	font-family: Arial, sans-serif;
+	text-decoration: none;
+	color: rgba(210, 0, 0, 1);
+	font-weight: bold;
+	text-align: center;
+	/*text-shadow:
+		-1.5px -1.5px 0 #000,
+		1.5px -1.5px 0 #000,
+		-1.5px 1.5px 0 #000,
+		1.5px 1.5px 0 #000;*/
+}
+.buttons1 a:hover {
+	text-shadow: 0px 0px 6px rgba(235, 0, 0, 1);
+	color: rgba(235, 0, 0, 1);
+}
+.buttons2 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+	background:-moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100');
+	/*background-color:#fe1a00;*/
+	background-color: rgba(210, 0, 0, 1);
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#000;
+	font-family: arial, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #b23e35;
+}
+.buttons2:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
+	background:-moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00');
+	background-color: rgba(180, 0, 0, 1);
+}
+.buttons2:active {
+	position:relative;
+	top:1px;
+}
+
+#head {
+	width: 265px;
+	height: 70px;
+	margin: 0 auto;
+	text-align: center;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
+	font-size: 36px;
+	color: #D00;
+	/*text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);*/
+	background: url('bg/header_bg.png') no-repeat;
+}
+
+#main {
+	margin: 0 auto;
+	/*min-width: 710px;*/
+	width: 1000px;
+	min-height: 700px;
+	max-height: 2000px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #000 url('bg/blood_splatter.png') no-repeat;
+	border-style: solid;
+	border-width: medium;
+	border-color: #000;
+	padding: 10px;
+	overflow: auto;
+}
+
+.left {
+	float: left;
+	text-align: left;
+}
+
+.right {
+	float: right;
+	text-align: left;
+}
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#labels {
+	font-family: 'october_crowregular', Arial, sans-serif;
+	font-weight: strong;
+	text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+	font-size: 20px;
+	color: #000;
+	letter-spacing: 3px;
+	padding-left: 10px;
+	text-shadow:
+		-1px -1px 0 #D00,
+		1px -1px 0 #D00,
+		-1px 1px 0 #D00,
+		1px 1px 0 #D00;
+}
+#player_selection {
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	display: inline-block;
+}
+#player_selection .right {
+	width: auto;
+}
+#gear_selection {
+	margin: 0 auto;
+	color: #FFF;
+	width: 100%;
+	min-height: 150px;
+	/*display: inline-block;*/
+	display: none;
+}
+#gear_selection a {
+	font-size: 22px;
+	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
+	font-family: Arial, sans-serif;
+	text-decoration: underline;
+	color: rgba(210, 0, 0, 1);
+	font-weight: bold;
+	text-align: center;
+}
+#gear_selection a:hover {
+	text-shadow: 0px 0px 6px rgba(235, 0, 0, 1);
+	color: rgba(235, 0, 0, 1);
+}
+	
+#gear_strings {
+	margin: 0 auto;
+	/*min-height: 80px;*/
+	color: #FFF;
+	font-family: Arial, sans-serif;
+	/*display: inline-block;*/
+	display: inline-block;
+	width: 100%;
+}
+#gear_preview {
+	margin: 0 auto;
+	color: #FFF;
+	width: 100%;
+	min-height: 150px;
+	font-family: Arial, sans-serif;
+	/*display: inline-block;*/
+	display: none;
+}
+#current_main_items, #current_side_items {
+	display: inline-block;
+}
+#backpack_slots_text {
+	float: right;
+}
+.inventory_tables {
+	float:right;
+	visibility: hidden;
+	/*display: none;*/
+	display: inline-block;
+}
+#inventory_string, #backpack_string {
+	color: #D00;
+	font-size: 17px;
+	letter-spacing: 1px;
+	width: auto;
+	max-height: 300px;
+	/*min-height: 44px;
+	max-height: 300px;*/
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #D00;
+	background: rgba(0, 0, 0, .7);
+	padding: 5px 5px 5px 5px;
+	overflow: auto;
+}
+#current_main_inventory {
+	min-height: 100px;
+}
+#current_side_inventory {
+	min-height: 50px;
+	display: inline;
+}
+#current_backpack_inventory {
+	float: left;
+}
+#type1_string {
+	width: 912px;
+}
+#type2_string {
+	width: 912px;
+}
+.inventory_tables td {
+	width: 25px;
+	height: 25px;
+	background: rgba(255, 255, 255, .8);
+}
+.inventory_tables td:hover {
+	background: rgba(220, 150, 150, .7);
+}
+#table_playerdata, #table_playerdata th, #table_playerdata td {
+	margin: 0 auto;
+	border: 1px solid #D00;
+	border-collapse: collapse;
+	padding: 2px 6px 2px 6px;
+	text-align: center;
+}
+#table_playerdata td:hover {
+	background: rgba(140, 30, 30, .3);
+	color: #FF5900;
+	text-shadow: 0px 0px 6px rgba(255, 89, 0, 1);
+}
+#row_fieldname {
+	font-family: 'october_crowregular', Arial, sans-serif;
+	font-size: 18px;
+	color: #000;
+	letter-spacing: 2px;
+	font-weight: strong;
+	text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+	background: rgba(0, 0, 0, .8);
+	text-shadow:
+		-1px -1px 0 #D00,
+		1px -1px 0 #D00,
+		-1px 1px 0 #D00,
+		1px 1px 0 #D00;
+}
+.row_playerdata {
+	font-family: Arial, sans-serif;
+	color: #FF5900;
+	margin: 0 auto;
+	text-shadow: 0px 0px 4px rgba(255, 89, 0, 1);
+	background: rgba(0, 0, 0, .6);
+}
+.row_playerdata:hover {
+	background: rgba(100, 0, 0, .2);
+	color: #FF4900;
+	text-shadow: 0px 0px 6px rgba(255, 89, 0, .9);
+}
+#stats_header {
+	text-align: center;
+}
+#stats_player_name {
+	font-family: arial;
+}
+/* Input form for player name */
+#player_name {
+	color: #FFF;
+	background: rgba(140, 30, 30, .75);
+	border-color: #A00;
+	width: 150px;
+}
+/* Input form for player ID */
+#player_id {
+	color: #FFF;
+	background: rgba(140, 30, 30, .75);
+	border-color: #A00;
+	width: 150px;
+}
+#player_search_results {
+	color: #FFF;
+	display: none;
+}
+#view_gear {
+	background: rgba(140, 30, 30, .3);
+	color: #FF5900;
+	text-shadow: 0px 0px 6px rgba(255, 89, 0, 1);
+}
+#view_gear:hover {
+	background: rgba(150, 40, 40, .4);
+	color: #FF5900;
+	text-shadow: 0px 0px 8px rgba(255, 40, 40, 1);
+}
+#setgear_btn {
+	opacity: 0;
+	font-size: 20px;
+	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
+	font-family: Arial, sans-serif;
+	text-decoration: underline;
+	color: rgba(210, 0, 0, 1);
+	font-weight: bold;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 20px;
+	/*padding-left: 0px;*/
+	/*margin-top: 5px;*/
+	/*text-align: center;*/
+}
+#skin_preview {
+	display: inline-block;
+	text-align: center;
+}
+.slots_num_text {
+	font-size: 20px;
+	text-align: right;
+	/*margin: 0 auto;*/
+	color: #D00;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	font-weight: 400;
+	/*float: right;*/
+	margin-right: 20px;
+}
+#gear_preview .right .slots_num_text {
+	/*display: inline;*/
+	/*padding-left: 100px;*/
+	float: right;
+}
+#player_skin_img {
+	width: 282px;
+	height: 400px;
+}
+#gear_preview .left {
+	max-width: 300px;
+}
+#gear_preview .right {
+	min-width: 250px;
+	max-width: 310px;
+}
+#current_main_inventory .slots_num_text {
+	margin-right: 40px;
+}
+#set_gear_buttons {
+	display: inline-block;
+	margin: 0px auto 20px auto;
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+}
+#hide_gear_selection {
+	opacity: 0;
+	font-size: 20px;
+	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
+	font-family: Arial, sans-serif;
+	text-decoration: underline;
+	color: rgba(210, 0, 0, 1);
+	font-weight: bold;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#top_players_btn {
+	margin: 0 auto;
+	text-align: center;
+}
+#loginform {
+	text-align: center;
+	margin: 0 auto;
+}
+#current_id {
+	display: none;
+}
+#top_players_btn a {
+}
+
+#current_player_buttons {
+	margin: 0 auto;
+	text-align: center;
+	padding: auto;
+	padding-top: 50px;
+	padding-right: 150px;
+	margin-bottom: 10px;
+}
