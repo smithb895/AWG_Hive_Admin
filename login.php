@@ -25,7 +25,7 @@ if ($username && $password)
 	};
 	if ($dbpass == $passwordcheck)
 	{
-		session_start();
+		@session_start();
 		$_SESSION['user_id'] = $id;
 		//$qry = $dbhandle->prepare('SELECT `group` FROM ADMINS WHERE user=?');
 		//$qry->execute(array($username));
