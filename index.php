@@ -19,7 +19,7 @@ require("session.php");
 <div id="main">
 	<div class="buttons1" id="top_players_btn">
 		<a href="../admin.php" alt="Go back to the main admin page">[Back to Main Dashboard]</a><br />
-		<!--<a href="#" alt="Search/View logs, Lookup Players, etc">[Search Logs]</a>&nbsp;&nbsp;&nbsp;&nbsp;-->
+		<a href="https://anzuswargames.info/admins" alt="Search/View logs, Lookup Players, etc">[Search Logs]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="" onclick='fetch_top_players("zombie_kills"); return false;' alt="Show Top Players - Sort by Zombie Kills">[Top Zed Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="" onclick='fetch_top_players("survivor_kills"); return false;' alt="Show Top Players - Sort by Survivor Kills">[Top Survivor Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="" onclick='fetch_top_players("bandit_kills"); return false' alt="Show Top Players - Sort by Bandit Kills">[Top Bandit Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -95,10 +95,10 @@ require("session.php");
 				<div>
 					<label id="labels">Main Gun</label>
 					<select name="maingun" id="maingun_item">
-						<OPTION VALUE="Remington870_lamp">Remington 870</OPTION>
+						<OPTION VALUE="Remington870_Lamp">Remington 870</OPTION>
 						<OPTION VALUE="Winchester1866">Winchester 1866</OPTION>
 						<!--<OPTION VALUE="AA12_PMC">AA12</OPTION>-->
-						<OPTION VALUE="BAF_AS50_scoped">AS50</OPTION>
+						<OPTION VALUE="BAF_AS50_Scoped">AS50</OPTION>
 						<!--<OPTION VALUE="BAF_AS50_TWS">AS50 IR Scope</OPTION>
 						<OPTION VALUE="BAF_L110A1_Aim">BAF_L110A1_Aim</OPTION>
 						<OPTION VALUE="BAF_L7A2_GPMG">BAF_L7A2_GPMG</OPTION>
@@ -115,22 +115,22 @@ require("session.php");
 						<OPTION VALUE="DMR">DMR</OPTION>
 						<OPTION VALUE="FN_FAL">FN FAL</OPTION>
 						<OPTION VALUE="FN_FAL_ANPVS4">FN FAL NVG Scope</OPTION>
-						<!--<OPTION VALUE="G36_C_SD_camo">G36c SD Camo</OPTION>
+						<OPTION VALUE="G36_C_SD_camo">G36c SD Camo</OPTION>
 						<OPTION VALUE="G36_C_SD_eotech">g36c SD Eotech</OPTION>
 						<OPTION VALUE="G36a">G36a</OPTION>
 						<OPTION VALUE="G36A_camo">G36a Camo</OPTION>
 						<OPTION VALUE="G36C">G36C</OPTION>
 						<OPTION VALUE="G36C_camo">G36c Camo</OPTION>
 						<OPTION VALUE="G36K">G36k</OPTION>
-						<OPTION VALUE="G36K_camo">G36k Camo</OPTION>-->
+						<OPTION VALUE="G36K_camo">G36k Camo</OPTION>
 						<OPTION VALUE="M1014">M1014</OPTION>
 						<!--<OPTION VALUE="M110_NVG_EP1">M110 NVG Scope</OPTION>
 						<OPTION VALUE="M110_TWS_EP1">M110 IR Scope</OPTION>-->
 						<OPTION VALUE="M14_EP1">M14</OPTION>
 						<OPTION VALUE="M16A2">M16A2</OPTION>
 						<OPTION VALUE="M16A2GL">M16A2 + M203</OPTION>
-						<OPTION VALUE="m16a4">M16A4</OPTION>
-						<OPTION VALUE="m16a4_acg">M16A4 ACOG Scope</OPTION>
+						<OPTION VALUE="M16A4">M16A4</OPTION>
+						<OPTION VALUE="M16A4_ACG">M16A4 ACOG Scope</OPTION>
 						<OPTION VALUE="M16A4_ACG_GL">M16A4 ACOG + M203</OPTION>
 						<OPTION VALUE="M16A4_GL">M16A4 + M203</OPTION>
 						<OPTION VALUE="M24">M24</OPTION>
@@ -169,7 +169,8 @@ require("session.php");
 						<OPTION VALUE="MG36">MG36</OPTION>
 						<OPTION VALUE="MG36_camo">MG36_camo</OPTION>-->
 						<OPTION VALUE="Mk_48_DZ">Mk48</OPTION>
-						<OPTION VALUE="m107_DZ">M107</OPTION>
+						<OPTION VALUE="M107_DZ">M107</OPTION>
+						<OPTION VALUE="PK_DZN">PK</OPTION>
 						<!--<OPTION VALUE="Mk13_EP1">Mk13_EP1</OPTION>-->
 						<OPTION VALUE="MP5A5">MP5A5</OPTION>
 						<OPTION VALUE="MP5SD">MP5SD</OPTION>
@@ -205,16 +206,15 @@ require("session.php");
 						<OPTION VALUE="AKS_74_pso">AKS_74_pso</OPTION>
 						<OPTION VALUE="AKS_74_U">AKS_74_U</OPTION>
 						<OPTION VALUE="AKS_74_UN_kobra">AKS_74_UN_kobra</OPTION>
-						<OPTION VALUE="AKS_GOLD">AKS_GOLD</OPTION>
-						<OPTION VALUE="bizon">bizon</OPTION>
-						<OPTION VALUE="bizon_silenced">bizon_silenced</OPTION>
-						<OPTION VALUE="huntingrifle">huntingrifle</OPTION>
+						<!--<OPTION VALUE="AKS_GOLD">AKS_GOLD</OPTION>-->
+						<OPTION VALUE="Bizon">bizon</OPTION>
+						<OPTION VALUE="Bizon_Silenced">bizon_silenced</OPTION>
+						<OPTION VALUE="HuntingRifle">huntingrifle</OPTION>
 						<OPTION VALUE="LeeEnfield">LeeEnfield</OPTION>
-						<OPTION VALUE="Pecheneg">PKP</OPTION>
-						<OPTION VALUE="KSVK">KSVK</OPTION>
-						<!--<OPTION VALUE="PK">PK</OPTION>-->
-						<!--<OPTION VALUE="RPK_74">RPK_74</OPTION>
-						<OPTION VALUE="Sa58P_EP1">Sa58P_EP1</OPTION>
+						<OPTION VALUE="Pecheneg_DZN">PKP</OPTION>
+						<OPTION VALUE="KSVK_DZN">KSVK</OPTION>
+						<OPTION VALUE="RPK_74">RPK_74</OPTION>
+						<!--<OPTION VALUE="Sa58P_EP1">Sa58P_EP1</OPTION>
 						<OPTION VALUE="Sa58V_CCO_EP1">Sa58V_CCO_EP1</OPTION>
 						<OPTION VALUE="Sa58V_EP1">Sa58V_EP1</OPTION>
 						<OPTION VALUE="Sa58V_RCO_EP1">Sa58V_RCO_EP1</OPTION>-->
@@ -223,8 +223,8 @@ require("session.php");
 						<OPTION VALUE="SVD_CAMO">SVD_CAMO</OPTION>
 						<!--<OPTION VALUE="SVD_des_EP1">SVD_des_EP1</OPTION>
 						<OPTION VALUE="SVD_NSPU_EP1">SVD_NSPU_EP1</OPTION>
-						<OPTION VALUE="VSS_vintorez">VSS_vintorez</OPTION>-->
-						<OPTION VALUE="M136">M136</OPTION>
+						<OPTION VALUE="VSS_vintorez">VSS_vintorez</OPTION>
+						<OPTION VALUE="M136">M136</OPTION>-->
 						<OPTION VALUE="nsw_er7s">NAC ER7 Railgun</OPTION>
 					</select>
 					<button id="add_button_maingun" type="submit" value="add" name="submit" >ADD</button>
@@ -235,12 +235,12 @@ require("session.php");
 					<label id="labels">Sidearm</label>
 					<select name="sidearm" id="sidearm_item">
 						<OPTION VALUE="Colt1911">Colt1911</OPTION>
-						<OPTION VALUE="glock17_EP1">glock17_EP1</OPTION>
+						<OPTION VALUE="Glock17_EP1">glock17_EP1</OPTION>
 						<OPTION VALUE="M9">M9</OPTION>
 						<OPTION VALUE="M9SD">M9SD</OPTION>
 						<OPTION VALUE="Makarov">Makarov</OPTION>
-						<!--<OPTION VALUE="MakarovSD">MakarovSD</OPTION>-->
-						<OPTION VALUE="revolver_EP1">revolver_EP1</OPTION>
+						<OPTION VALUE="MakarovSD">MakarovSD</OPTION>
+						<OPTION VALUE="Revolver_EP1">revolver_EP1</OPTION>
 						<!--<OPTION VALUE="revolver_gold_EP1">revolver_gold_EP1</OPTION>-
 						<OPTION VALUE="Sa61_EP1">Sa61_EP1</OPTION>-->
 						<OPTION VALUE="UZI_EP1">UZI_EP1</OPTION>
@@ -255,8 +255,10 @@ require("session.php");
 					<select name="mainammo" id="mainammo_item">
 						<OPTION VALUE="30Rnd_762x39_AK47">30Rnd_762x39_AK47</OPTION>
 						<OPTION VALUE="30Rnd_545x39_AK">30Rnd_545x39_AK</OPTION>
+						<OPTION VALUE="30Rnd_545x39_AKSD">30Rnd_545x39_AKSD</OPTION>
 						<OPTION VALUE="64Rnd_9x19_SD_Bizon">64Rnd_9x19_SD_Bizon</OPTION>
 						<OPTION VALUE="8Rnd_B_Beneli_74Slug">8Rnd_B_Beneli_74Slug</OPTION>
+						<OPTION VALUE="8Rnd_B_Beneli_Pellets">8Rnd_B_Beneli_Pellets</OPTION>
 						<OPTION VALUE="30Rnd_556x45_Stanag">30Rnd_556x45_Stanag</OPTION>
 						<OPTION VALUE="30Rnd_556x45_StanagSD">30Rnd_556x45_StanagSD</OPTION>
 						<OPTION VALUE="30Rnd_9x19_MP5">30Rnd_9x19_MP5</OPTION>
@@ -271,7 +273,7 @@ require("session.php");
 						<OPTION VALUE="10Rnd_127x99_m107">10Rnd_127x99_m107</OPTION>
 						<OPTION VALUE="20Rnd_762x51_FNFAL">20Rnd_762x51_FNFAL</OPTION>
 						<OPTION VALUE="5Rnd_127x99_as50">5Rnd_127x99_as50</OPTION>
-						<OPTION VALUE="M136">M136</OPTION>
+						<!--<OPTION VALUE="M136">M136</OPTION>-->
 						<OPTION VALUE="100Rnd_762x54_PK">100Rnd_762x54_PK</OPTION>
 						<OPTION VALUE="5Rnd_127x108_KSVK">5Rnd_127x108_KSVK</OPTION>
 						<OPTION VALUE="nsw_er7mm">ER7 Railgun Ammo</OPTION>
@@ -287,13 +289,14 @@ require("session.php");
 						<OPTION VALUE="15Rnd_9x19_M9">15Rnd_9x19_M9</OPTION>
 						<OPTION VALUE="15Rnd_9x19_M9SD">15Rnd_9x19_M9SD</OPTION>
 						<OPTION VALUE="8Rnd_9x18_Makarov">8Rnd_9x18_Makarov</OPTION>
+						<OPTION VALUE="8Rnd_9x18_MakarovSD">8Rnd_9x18_MakarovSD</OPTION>
 						<OPTION VALUE="17Rnd_9x19_glock17">17Rnd_9x19_glock17</OPTION>
 						<OPTION VALUE="6Rnd_45ACP">6Rnd_45ACP</OPTION>
 						<OPTION VALUE="30Rnd_9x19_UZI">30Rnd_9x19_UZI</OPTION>
-						<OPTION VALUE="revolver_gold_EP1">revolver_gold_EP1</OPTION>
 						<OPTION VALUE="20Rnd_B_765x17_Ball">20Rnd_B_765x17_Ball</OPTION>
 						<OPTION VALUE="30Rnd_9x19_UZI_SD">30Rnd_9x19_UZI_SD</OPTION>
-						<OPTION VALUE="1rnd_he_m203">M203 HE Round</OPTION>
+						<OPTION VALUE="1Rnd_HE_M203">M203 HE Round</OPTION>
+						<OPTION VALUE="1Rnd_Smoke_M203">1Rnd Smoke M203</OPTION>
 					</select>
 					<button id="add_button_sideammo" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -309,6 +312,7 @@ require("session.php");
 						<OPTION VALUE="NVGoggles">NVGoggles</OPTION>
 						<OPTION VALUE="ItemCompass">ItemCompass</OPTION>
 						<OPTION VALUE="ItemGPS">ItemGPS</OPTION>
+						<OPTION VALUE="APSI">APSI (Emission Protection)</OPTION>
 						<OPTION VALUE="ItemMap">ItemMap</OPTION>
 						<!--<OPTION VALUE="ItemRadio">ItemRadio</OPTION>-->
 						<OPTION VALUE="ItemWatch">ItemWatch</OPTION>
@@ -321,14 +325,14 @@ require("session.php");
 						<OPTION VALUE="ItemSodaPepsi">Pepsi</OPTION>
 						<OPTION VALUE="ItemWaterbottle">Water Bottle</OPTION>
 						<OPTION VALUE="ItemEpinephrine">Epipen</OPTION>
-						<OPTION VALUE="Bloodbag">Bloodbag</OPTION>
+						<OPTION VALUE="ItemBloodbag">Bloodbag</OPTION>
 						<OPTION VALUE="ItemBandage">Bandage</OPTION>
 						<OPTION VALUE="ItemPainkiller">Painkillers</OPTION>
 						<OPTION VALUE="ItemMorphine">Morphine</OPTION>
 						<OPTION VALUE="ItemAntibiotic">Antibiotic</OPTION>
 						<OPTION VALUE="ItemHeatPack">Heat Pack</OPTION>
 						<OPTION VALUE="ItemToolbox">Toolbox</OPTION>
-						<OPTION VALUE="ItemEtool">Entrenching Tool</OPTION>
+						<OPTION VALUE="ItemETool">Entrenching Tool</OPTION>
 						<OPTION VALUE="ItemFlashlightRed">Military Flashlight</OPTION>
 						<OPTION VALUE="ItemHatchet">Hatchet</OPTION>
 						<OPTION VALUE="ItemKnife">Knife</OPTION>
@@ -352,6 +356,10 @@ require("session.php");
 						<OPTION VALUE="ItemTent">Tent</OPTION>
 						<OPTION VALUE="TrapBear">Bear Trap</OPTION>
 						<OPTION VALUE="PipeBomb">Satchel/PipeBomb</OPTION>
+						<OPTION VALUE="SmokeShell">Smoke Grenade (White)</OPTION>
+						<OPTION VALUE="SmokeShellRed">Smoke Grenade (Red)</OPTION>
+						<OPTION VALUE="SmokeShellGreen">Smoke Grenade (Green)</OPTION>
+						<OPTION VALUE="ItemTent">Tent</OPTION>
 					</select>
 					<button id="add_button_item" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -365,6 +373,7 @@ require("session.php");
 						<OPTION VALUE="DZ_CivilBackpack_EP1">Czech BackPack (16 slots)</OPTION>
 						<OPTION VALUE="DZ_ALICE_Pack_EP1">ALICE Pack (20 slots)</OPTION>
 						<OPTION VALUE="DZ_Backpack_EP1">Coyote Backpack (24 slots)</OPTION>
+						<OPTION VALUE="BAF_AssaultPack_DZN">Namalsk Assault Pack (? slots)</OPTION>
 					</select>
 					<button id="add_button_backpack" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -377,10 +386,13 @@ require("session.php");
 						<OPTION VALUE="SurvivorW2_DZ">Survivor 2 (Female)</OPTION>
 						<OPTION VALUE="Camo1_DZ">Camo Clothing</OPTION>
 						<OPTION VALUE="Sniper1_DZ">Ghillie Suit</OPTION>
+						<OPTION VALUE="Sniper1W_DZN">Ghillie Suit (White)</OPTION>
 						<OPTION VALUE="Rocket_DZ">Rocket's</OPTION>
 						<OPTION VALUE="Soldier1_DZ">Soldier</OPTION>
 						<OPTION VALUE="Bandit1_DZ">Bandit</OPTION>
 						<OPTION VALUE="CamoWinter_DZN">Winter Camo</OPTION>
+						<OPTION VALUE="CamoWinterW_DZN">Winter Camo (White)</OPTION>
+						<OPTION VALUE="Survivor3_DZ">Hero Outfit</OPTION>
 					</select>
 					<button id="add_button_skin" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -399,6 +411,9 @@ require("session.php");
 			<a href="" onclick="save_backpack_clicked(); return false;" alt="Clear currently selected gear">Save Backpack</a>&nbsp;&nbsp;
 			<a href="" onclick="save_skin_clicked(); return false;" alt="Clear currently selected gear">Save Skin</a>&nbsp;&nbsp;
 			<a href="" onclick="clear_inventory(); return false;" alt="Clear currently selected gear">Clear Inventory</a>
+			<br />
+			<a href="" id="save_custom_loadout" onclick="return false;" alt="Save selected loadout as a preset">Save Loadout as Preset</a>&nbsp;&nbsp;
+			<a href="" id="load_custom_loadout" onclick="return false;" alt="Load previously save gear preset">Load Saved Preset</a>&nbsp;&nbsp;
 		</div>
 	</div>
 	<br />

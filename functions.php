@@ -27,10 +27,10 @@ function getPlayerDataName($playername,$dbhandle) {
 	// Bliss Schema v0.20
 	//$qry = $dbhandle->prepare("SELECT `survivor`.`id`, `survivor`.`unique_id`, `profile`.`name`, `survivor`.`zombie_kills`, `survivor`.`survivor_kills`, `survivor`.`bandit_kills`, `survivor`.`start_time`, `survivor`.`last_update`, `survivor`.`pos` FROM survivor, profile where `survivor`.`unique_id` = `profile`.`unique_id` AND `survivor`.`is_dead`=0 AND `profile`.`name`=?");
 	//Bliss Schema v0.26
-	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND p.name=?");
+	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND p.name LIKE ?");
 	// Old HIVE Schema
 	//$qry = $dbhandle->prepare("SELECT id,uid,name,kills,survivor_kills,bkills,survival,lastupdate FROM main WHERE name=? AND death=0");
-	$qry->execute(array($playername));
+	$qry->execute(array('%'.$playername.'%'));
 	$result = $qry->fetchAll(PDO::FETCH_NUM);
 	return $result;
 }
