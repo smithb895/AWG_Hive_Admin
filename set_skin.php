@@ -2,8 +2,8 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors',1);
 
-require("session.php");
-require("hive_connect.php");
+require_once("session.php");
+require_once("hive_connect.php");
 
 if (isset($_POST['skin'])) {
 	$set_skin = preg_replace('#[^_a-z0-9"+]#i', '', $_POST['skin']);
@@ -18,8 +18,11 @@ if (isset($_POST['id'])) {
 
 function setskin($skin,$id,$dbhandle) {
 	//$dbhandle = hiveconnect();
-	$qry = $dbhandle->prepare("UPDATE survivor SET model=? WHERE id=? AND is_dead=0");
-	$qry->execute(array($skin, $id));
+	//$qry = $dbhandle->prepare("UPDATE survivor SET model=? WHERE id=? AND is_dead=0");
+	$defaultstate = '["","aidlpercmstpsnonwnondnon_player_idlesteady04",36]';
+	// Reset state to defalt (bug fix) and set skin
+	$qry = $dbhandle->prepare("UPDATE survivor SET model=?, state=? WHERE id=? AND is_dead=0");
+	$qry->execute(array($skin,$defaultstate,$id));
 	//$dbhandle = null;
 }
 

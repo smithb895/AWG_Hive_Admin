@@ -114,6 +114,7 @@ save_skin_clicked = function() {
 		var set_skin_string = $("#current_skin_text").html().replace(/<[^>]*>/g, '');
 		var id = $("#current_id").html();
 		var poststring = 'skin='+ set_skin_string +'&id='+ id;
+		//alert(poststring);
 		set_skin(poststring);
 	} else {
 		
