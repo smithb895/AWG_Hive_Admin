@@ -5,10 +5,10 @@
  * Requires jQuery.
 */
 
-var mainguns_array = new Array("Remington870_Lamp","Winchester1866","AA12_PMC","BAF_AS50_Scoped","BAF_AS50_TWS","BAF_L110A1_AIM","BAF_L7A2_gpmg","BAF_L85A2_RIS_ACOG","BAF_L85A2_RIS_cws","BAF_L85A2_RIS_Holo","BAF_L85A2_RIS_susat","BAF_L85A2_uGL_ACOG","BAF_L85A2_uGL_Holo","BAF_L85A2_uGL_susat","BAF_l86A2_ACOG","BAF_LRR_Scoped","BAF_LRR_Scoped_W","DMR","FN_FAL","FN_FAL_anpvs4","G36_c_SD_Camo","G36_c_SD_EOTECH","G36A","G36A_Camo","G36C","G36C_Camo","G36K","G36K_Camo","M1014","M110_NVG_EP1","M110_TWS_EP1","M14_EP1","M16A2","M16A2GL","M16A4","M16A4_ACG","M16A4_ACG_GL","M16A4_GL","M24","M24_DES_EP1","M240","M240_Scoped_EP1","M249","M249_EP1","M249_M145_EP1","M249_TWS_EP1","m32_EP1","m40a3","M4A1","M4A1_AIM","M4A1_AIM_Camo","M4A1_AIM_SD_Camo","M4A1_HWS_GL","M4A1_HWS_GL_Camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","m4spr","M60a4_EP1","m79_EP1","M8_Carbine","M8_Carbine_PMC","M8_CarbineGL","M8_Compact","M8_Compact_PMC","M8_Holo_SD","M8_saw","M8_Sharpshooter","M8_TWS","M8_TWS_SD","MG36","MG36_Camo","MK_48_DZ","M107_DZ","mk13_EP1","MP5A5","MP5SD","PMC_AS50_Scoped","PMC_AS50_TWS","scar_H_CQC_CCO","scar_H_CQC_CCO_SD","scar_H_lng_Sniper","scar_H_lng_Sniper_SD","scar_H_STD_EGLM_spect","scar_H_STD_TWS_SD","scar_l_CQC","scar_l_CQC_CCO_SD","scar_l_CQC_EGLM_Holo","scar_l_CQC_Holo","scar_l_STD_EGLM_rco","scar_l_STD_EGLM_TWS","scar_l_STD_Holo","scar_l_STD_mk4cqt","AK_107_GL_Kobra","AK_107_GL_pso","AK_107_Kobra","AK_107_PSO","AK_47_M","AK_47_S","AK_74","AK_74_GL","AK_74_GL_Kobra","AKS_74","AKS_74_Goshawk","AKS_74_Kobra","AKS_74_NSPU","AKS_74_PSOo","AKS_74_u","AKS_74_un_Kobra","AKS_Gold","Bizon","Bizon_Silenced","HuntingRifle","LeeEnfield","Pecheneg","Pecheneg_DZN","KSVK","PK","KSVK_DZ","PK_DZN","RPK_74","sA58p_EP1","sA58v_CCO_EP1","sA58v_EP1","sA58v_RCO_EP1","SaigA12K","SVD","SVD_Camo","SVD_DES_EP1","SVD_NSPU_EP1","VSS_Vintorez","M136","nsw_er7s");
+var mainguns_array = new Array("Remington870_Lamp","Winchester1866","AA12_PMC","BAF_AS50_Scoped","BAF_AS50_TWS","BAF_L110A1_AIM","BAF_L7A2_gpmg","BAF_L85A2_RIS_ACOG","BAF_L85A2_RIS_cws","BAF_L85A2_RIS_Holo","BAF_L85A2_RIS_susat","BAF_L85A2_uGL_ACOG","BAF_L85A2_uGL_Holo","BAF_L85A2_UGL_susat","BAF_l86A2_ACOG","BAF_LRR_Scoped","BAF_LRR_Scoped_W","DMR","FN_FAL","FN_FAL_anpvs4","G36_C_SD_Camo","G36_C_SD_eotech","G36A","G36A_Camo","G36C","G36C_Camo","G36K","G36K_Camo","M1014","M110_NVG_EP1","M110_TWS_EP1","M14_EP1","M16A2","M16A2GL","M16A4","M16A4_ACG","M16A4_ACG_GL","M16A4_GL","M24","M24_DES_EP1","M240","M240_Scoped_EP1","M249","M249_EP1","M249_M145_EP1","M249_TWS_EP1","m32_EP1","m40a3","M4A1","M4A1_AIM","M4A1_AIM_Camo","M4A1_AIM_SD_Camo","M4A1_HWS_GL","M4A1_HWS_GL_Camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","m4spr","M60a4_EP1","m79_EP1","M8_Carbine","M8_Carbine_PMC","M8_CarbineGL","M8_Compact","M8_Compact_PMC","M8_Holo_SD","M8_SAW","M8_Sharpshooter","M8_TWS","M8_TWS_SD","MG36","MG36_Camo","MK_48_DZ","M107_DZ","mk13_EP1","MP5A5","MP5SD","PMC_AS50_Scoped","PMC_AS50_TWS","scar_H_CQC_CCO","scar_H_CQC_CCO_SD","scar_H_lng_Sniper","scar_H_lng_Sniper_SD","scar_H_STD_EGLM_spect","scar_H_STD_TWS_SD","scar_l_CQC","scar_l_CQC_CCO_SD","scar_l_CQC_EGLM_Holo","scar_l_CQC_Holo","scar_l_STD_EGLM_rco","scar_l_STD_EGLM_TWS","scar_l_STD_Holo","scar_l_STD_mk4cqt","AK_107_GL_Kobra","AK_107_GL_pso","AK_107_Kobra","AK_107_PSO","AK_47_M","AK_47_S","AK_74","AK_74_GL","AK_74_GL_Kobra","AKS_74","AKS_74_Goshawk","AKS_74_Kobra","AKS_74_NSPU","AKS_74_PSOo","AKS_74_u","AKS_74_un_Kobra","AKS_Gold","Bizon","Bizon_Silenced","HuntingRifle","LeeEnfield","Pecheneg","Pecheneg_DZN","KSVK","PK","KSVK_DZ","PK_DZN","RPK_74","sA58p_EP1","sA58v_CCO_EP1","sA58v_EP1","sA58v_RCO_EP1","SaigA12K","SVD","SVD_Camo","SVD_DES_EP1","SVD_NSPU_EP1","VSS_Vintorez","M136","nsw_er7s");
 var sidearms_array = new Array("Colt1911","Glock17_EP1","M9","M9SD","Makarov","MakarovSD","Revolver_EP1","Revolver_gold_EP1","sa61_EP1","UZI_EP1","UZI_SD_EP1","1Rnd_Smoke_M203","1Rnd_HE_M203");
 var mainitems_array = new Array("30Rnd_762x39_AK47","30Rnd_545x39_AK","30Rnd_545x39_AKSD","64Rnd_9x19_SD_Bizon","8Rnd_B_Beneli_74Slug","8Rnd_B_Beneli_Pellets","30Rnd_556x45_Stanag","30Rnd_556x45_StanagSD","30Rnd_9x19_MP5","30Rnd_9x19_MP5SD","100Rnd_762x51_M240","200Rnd_556x45_M249","5x_22_LR_17_HMR","20Rnd_762x51_DMR","5Rnd_762x51_M24","10Rnd_762x54_SVD","10x_303","10Rnd_127x99_M107","20Rnd_762x51_FNFAL","5Rnd_127x99_AS50","M136","100Rnd_762x54_pk","5Rnd_127x108_KSVK","FoodSteakRaw","FoodSteakCooked","ItemEpinephrine","ItemBloodbag","FoodCanBakedBeans","FoodCanSardines","FoodCanPasta","ItemSodaCoke","ItemSodaPepsi","ItemSodaMDew","ItemWaterbottle","HandRoadFlare","HandChemGreen","HandChemBlue","HandChemRed","ItemSandbag","ItemTankTrap","ItemWire","ItemPainkiller","ItemMorphine","ItemAntibiotic","ItemHeatpack","PartWoodPile","PartWheel","PartFueltank","PartGlass","PartEngine","PartGeneric","PartVRotor","ItemJerrycan","ItemTent","TrapBear","PipeBomb","nsw_er7mm","APSI");
-var sideitems_array = new Array("ItemBandage","1Rnd_HE_M203","7Rnd_45ACP_1911","15Rnd_9x19_M9","15Rnd_9x19_M9SD","8Rnd_9x18_Makarov","17Rnd_9x19_Glock17","6Rnd_45ACP","30Rnd_9x19_UZI","Revolver_Gold_EP1","20Rnd_B_765x17_Ball","30Rnd_9x19_UZI_SD","8Rnd_9x18_MakarovSD");
+var sideitems_array = new Array("ItemBandage","1Rnd_HE_M203","1Rnd_HE_GP25","1Rnd_SMOKEGREEN_GP25","1Rnd_SMOKERED_GP25","7Rnd_45ACP_1911","15Rnd_9x19_M9","15Rnd_9x19_M9SD","8Rnd_9x18_Makarov","17Rnd_9x19_Glock17","6Rnd_45ACP","30Rnd_9x19_UZI","Revolver_Gold_EP1","20Rnd_B_765x17_Ball","30Rnd_9x19_UZI_SD","8Rnd_9x18_MakarovSD","1Rnd_Smoke_M203","FlareYellow_M203","FlareRed_M203","FlareWhite_GP25","FlareGreen_GP25","FlareRed_GP25","FlareYellow_GP25","FlareWhite_GP25");
 var miscitems_array = new Array("ItemToolbox","ItemETool","ItemFlashlightRed","ItemHatchet","ItemKnife","ItemMatchbox","ItemFlashlight","ItemCompass","ItemGPS","ItemMap","ItemRadio","ItemWatch","Binocular","Binocular_Vector","NVGoggles");
 
 // Create type1 and type2 items arrays (used for placement of item classname in gear string
@@ -135,7 +135,44 @@ function getBackpackNumSlots(backpack_name) {
 	}
 	return num_backpack_slots;
 }
-
+function getMapName(world_id) {
+	switch(world_id) {
+		case '1':
+			return 'Chernarus';
+			break;
+		case '2':
+			return 'Lingor';
+			break;
+		case '3':
+			return 'Utes';
+			break;
+		case '4':
+			return 'Takistan';
+			break;
+		case '5':
+			return 'Panthera';
+			break;
+		case '6':
+			return 'Fallujah';
+			break;
+		case '7':
+			return 'Zargabad';
+			break;
+		case '8':
+			return 'Namalsk';
+			break;
+		case '9':
+			return 'Celle';
+			break;
+		case '10':
+			return 'Taviana';
+			break;
+		default:
+			return 'Unknown';
+			break;
+	}
+}
+	
 function fetch_data(postdata) {
 	$.ajax({
 		type: "POST",
@@ -153,7 +190,7 @@ function fetch_data(postdata) {
 				var num_results = result_rows_array.length;
 			}
 			$("#player_search_results").append('<h3>Found '+ num_results +' results</h3><br />');
-			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>Gear</th><th>Position</th></tr>';
+			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>Gear</th><th>Position</th><th>Map</th></tr>';
 			var _count = 0;
 			$.each(result_rows_array, function() {
 				_count += 1;
@@ -167,9 +204,15 @@ function fetch_data(postdata) {
 				var pos_y = roundNumber(pos[2],2);
 				var pos_z = pos[3];
 				var pos_display = pos_x+','+pos_y;
+				var is_dead = 'No';
+				if (row_array[9] == 1) {
+					is_dead = 'Yes';
+				}
+				_mapname = getMapName(row_array[10]);
 				result_table += '<tr class="row_playerdata">';
 				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +','+ days_alive +',"'+ row_array[7] +'","'+ pos_display +'");return false;\' id="view_gear" alt="Select Player">'+row_array[2]+'</a></td>';	// Player Name row_array[2]
 				result_table += '<td>'+ row_array[1] +'</td>';	// Player ID
+				result_table += '<td>'+ is_dead +'</td>';	// Dead?
 				result_table += '<td>'+ row_array[3] +'</td>'; // Zombie kills
 				result_table += '<td>'+ row_array[4] +'</td>';	// Murders
 				result_table += '<td>'+ row_array[5] +'</td>';	// Bandit kills
@@ -177,6 +220,7 @@ function fetch_data(postdata) {
 				result_table += '<td>'+ row_array[7] +'</td>';	// Last update
 				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +','+ days_alive +',"'+ row_array[7] +'","'+ pos_display +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';
 				result_table += '<td>'+ pos_display +'</td>';
+				result_table += '<td>'+ _mapname +'</td>';
 				result_table += '</tr>';
 			});
 			result_table += '</table><br />';
@@ -444,7 +488,7 @@ function fetch_top_players(orderby) {
 				var num_results = result_rows_array.length;
 			}
 			//$("#player_search_results").append('<h3>Found '+ num_results +' results</h3><br />');
-			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>Gear</th><th>Position</th></tr>';
+			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>Gear</th><th>Position</th><th>Map</th></tr>';
 			var _count = 0;
 			$.each(result_rows_array, function() {
 				_count += 1;
@@ -458,9 +502,15 @@ function fetch_top_players(orderby) {
 				var pos_y = roundNumber(pos[2],2);
 				var pos_z = pos[3];
 				var pos_display = pos_x+','+pos_y;
+				var is_dead = 'No';
+				if (row_array[9] == 1) {
+					is_dead = 'Yes';
+				}
+				_mapname = getMapName(row_array[10]);
 				result_table += '<tr class="row_playerdata">';
 				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +','+ days_alive +',"'+ row_array[7] +'","'+ pos_display +'");return false;\' id="view_gear" alt="Select Player">'+row_array[2]+'</a></td>';	// Player Name
 				result_table += '<td>'+ row_array[1] +'</td>';	// Player ID
+				result_table += '<td>'+ is_dead +'</td>';	// Dead?
 				result_table += '<td>'+ row_array[3] +'</td>'; // Zombie kills
 				result_table += '<td>'+ row_array[4] +'</td>';	// Murders
 				result_table += '<td>'+ row_array[5] +'</td>';	// Bandit kills
@@ -468,6 +518,7 @@ function fetch_top_players(orderby) {
 				result_table += '<td>'+ row_array[7] +'</td>';	// Last update
 				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +','+ days_alive +',"'+ row_array[7] +'","'+ pos_display +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';
 				result_table += '<td>'+ pos_display +'</td>';
+				result_table += '<td>'+ _mapname +'</td>';
 				result_table += '</tr>';
 			});
 			result_table += '</table><br />';

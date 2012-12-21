@@ -84,6 +84,17 @@ set_dead = function(postdata) {
 	});
 }
 
+function set_alive(postdata) {
+	$.ajax({
+		type: "POST",
+		url: "set_alive.php",
+		data: postdata,
+		success: function(response) {
+			alert("Done");
+		}
+	});
+}
+
 //$("#set_inventory_button").click(function() {
 save_gear_clicked = function() {
 	if (confirm('Are you sure you want to save this player\'s inventory to the HIVE?')) {
@@ -146,6 +157,16 @@ set_dead_clicked = function() {
 		var id = $("#current_id").html();
 		var poststring = 'id='+ id;
 		set_dead(poststring);
+	} else {
+		
+	}
+}
+
+set_alive_clicked = function() {
+	if (confirm('Are you sure you want to revive this player?')) {
+		var id = $("#table_playerid").html();
+		var poststring = 'id='+ id;
+		set_alive(poststring);
 	} else {
 		
 	}

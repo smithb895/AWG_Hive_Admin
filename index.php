@@ -21,8 +21,8 @@ require("session.php");
 		<a href="../admin.php" alt="Go back to the main admin page">[Back to Main Dashboard]</a><br />
 		<a href="https://anzuswargames.info/admins" alt="Search/View logs, Lookup Players, etc">[Search Logs]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="" onclick='fetch_top_players("zombie_kills"); return false;' alt="Show Top Players - Sort by Zombie Kills">[Top Zed Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("survivor_kills"); return false;' alt="Show Top Players - Sort by Survivor Kills">[Top Survivor Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("bandit_kills"); return false' alt="Show Top Players - Sort by Bandit Kills">[Top Bandit Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="" onclick='fetch_top_players("survivor_kills"); return false;' alt="Show Top Players - Sort by Survivor Kills">[Top Murderers]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="" onclick='fetch_top_players("bandit_kills"); return false' alt="Show Top Players - Sort by Bandit Kills">[Top Vigilantes]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="" onclick='fetch_top_players("start_time"); return false;' alt="Show Top Players - Sort by Start Time">[Oldest Survivors]</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
 	<div id="player_selection">
@@ -47,6 +47,7 @@ require("session.php");
 				<a href="" class="buttons2" onclick='reset_health_clicked(); return false;' alt="Restore Player Health">Restore Health</a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="" class="buttons2" onclick='reset_pos_clicked(); return false;' alt="Reset Player Location">Reset Position</a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="" class="buttons2" onclick='set_dead_clicked(); return false;' alt="Kill Player">Kill</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="" class="buttons2" onclick='set_alive_clicked(); return false;' alt="Revive Player">Revive</a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<!--<a href="" class="buttons2" onclick='alert("Not working yet"); return false;' alt="Show On Map">Show On Map</a>&nbsp;&nbsp;&nbsp;&nbsp;-->
 			</div>
 			<h3>Position (x,y,z)</h3>
@@ -165,9 +166,9 @@ require("session.php");
 						<OPTION VALUE="m8_SAW">m8_SAW</OPTION>
 						<OPTION VALUE="m8_sharpshooter">m8_sharpshooter</OPTION>
 						<OPTION VALUE="m8_tws">m8_tws</OPTION>
-						<OPTION VALUE="m8_tws_sd">m8_tws_sd</OPTION>
+						<OPTION VALUE="m8_tws_sd">m8_tws_sd</OPTION>-->
 						<OPTION VALUE="MG36">MG36</OPTION>
-						<OPTION VALUE="MG36_camo">MG36_camo</OPTION>-->
+						<OPTION VALUE="MG36_camo">MG36_camo</OPTION>
 						<OPTION VALUE="Mk_48_DZ">Mk48</OPTION>
 						<OPTION VALUE="M107_DZ">M107</OPTION>
 						<OPTION VALUE="PK_DZN">PK</OPTION>
@@ -206,7 +207,7 @@ require("session.php");
 						<OPTION VALUE="AKS_74_pso">AKS_74_pso</OPTION>
 						<OPTION VALUE="AKS_74_U">AKS_74_U</OPTION>
 						<OPTION VALUE="AKS_74_UN_kobra">AKS_74_UN_kobra</OPTION>
-						<!--<OPTION VALUE="AKS_GOLD">AKS_GOLD</OPTION>-->
+						<OPTION VALUE="AKS_GOLD">AKS_GOLD</OPTION>
 						<OPTION VALUE="Bizon">bizon</OPTION>
 						<OPTION VALUE="Bizon_Silenced">bizon_silenced</OPTION>
 						<OPTION VALUE="HuntingRifle">huntingrifle</OPTION>
@@ -277,6 +278,7 @@ require("session.php");
 						<OPTION VALUE="100Rnd_762x54_PK">100Rnd_762x54_PK</OPTION>
 						<OPTION VALUE="5Rnd_127x108_KSVK">5Rnd_127x108_KSVK</OPTION>
 						<OPTION VALUE="nsw_er7mm">ER7 Railgun Ammo</OPTION>
+						<OPTION VALUE="100Rnd_556x45_BetaCMag">100Rnd STANAG Beta Mag</OPTION>
 					</select>
 					<button id="add_button_mainammo" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -296,7 +298,17 @@ require("session.php");
 						<OPTION VALUE="20Rnd_B_765x17_Ball">20Rnd_B_765x17_Ball</OPTION>
 						<OPTION VALUE="30Rnd_9x19_UZI_SD">30Rnd_9x19_UZI_SD</OPTION>
 						<OPTION VALUE="1Rnd_HE_M203">M203 HE Round</OPTION>
+						<OPTION VALUE="1Rnd_HE_GP25">GP25 HE Round</OPTION>
 						<OPTION VALUE="1Rnd_Smoke_M203">1Rnd Smoke M203</OPTION>
+						<OPTION VALUE="FlareYellow_M203">M203 Flare Yelow</OPTION>
+						<OPTION VALUE="FlareRed_M203">M203 Flare Red</OPTION>
+						<OPTION VALUE="1Rnd_SMOKEGREEN_GP25">GP25 Smoke Green</OPTION>
+						<OPTION VALUE="1Rnd_SMOKERED_GP25">GP25 Smoke Red</OPTION>
+						<OPTION VALUE="FlareWhite_GP25">GP25 Flare White</OPTION>
+						<OPTION VALUE="FlareGreen_GP25">GP25 Flare Green</OPTION>
+						<OPTION VALUE="FlareRed_GP25">GP25 Flare Red</OPTION>
+						<OPTION VALUE="FlareYellow_GP25">GP25 Flare Yellow</OPTION>
+						<OPTION VALUE="FlareWhite_GP25">GP25 Flare White</OPTION>
 					</select>
 					<button id="add_button_sideammo" type="submit" value="add" name="submit" >ADD</button>
 				</div>

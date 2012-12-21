@@ -9,6 +9,7 @@
 *Log Features:
 	-Show all script restrictions (last day, 12hrs, hour, etc)
 	-Parse logs for player info, store in playerDB
+*Common positions, preset coords with names? (jquery...)
 
 Teleport to Map position:
 -------------------------
