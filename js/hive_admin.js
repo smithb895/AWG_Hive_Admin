@@ -143,28 +143,48 @@ $(document).ready(function() {
 			var item = $("#items_item").val();
 			if ($("#to_backpack").is(":checked")) {
 				$("#current_backpack_inventory").append(item + '<br />');
-				var backpack_string_items_existing = $("#backpack_string_items").html();
-				// Checking for existing items in backpack. If so, append to existing list.
-				if (backpack_string_items_existing.length > 2) {
-					$("#backpack_string_items").append(',"' + item + '"');
+				
+				var type1_found = $.inArray(item.toLowerCase(), type1_items);
+				if (type1_found > -1) {
+					var type1_string_existing = $("#backpack_string_guns").html();
+					if (type1_string_existing.length > 0) {
+						var type1_string_existing = type1_string_existing.replace(/"/g, '');
+						var type1_string_existing_array = type1_string_existing.split(',');
+						$("#backpack_string_guns").append(',"' + item + '"');
+					} else {
+						$("#backpack_string_guns").html('"' + item + '"');
+					}
+					// Add '1' to the guns qty in backpack
+					var _exist = $("#backpack_string_guns_qty").html();
+					if (_exist.length > 0) {
+						$("#backpack_string_guns_qty").append(',1');
+					} else {
+						$("#backpack_string_guns_qty").html('1');
+					}
 				} else {
-					$("#backpack_string_items").html('"' + item + '"');
+					var type2_string_existing = $("#backpack_string_items").html();
+					if (type2_string_existing.length > 0) {
+						$("#backpack_string_items").append(',"' + item + '"');
+					} else {
+						$("#backpack_string_items").html('"' + item + '"');
+					}
+					// Add '1' to the items qty in backpack
+					var _exist = $("#backpack_string_items_qty").html();
+					if (_exist.length > 0) {
+						$("#backpack_string_items_qty").append(',1');
+					} else {
+						$("#backpack_string_items_qty").html('1');
+					}
 				}
-				// Add '1' to the items qty in backpack
-				var _exist = $("#backpack_string_items_qty").html();
-				if (_exist.length > 0) {
-					$("#backpack_string_items_qty").append(',1');
-				} else {
-					$("#backpack_string_items_qty").html('1');
-				}
+				
 			} else {
-				var type1_found = $.inArray(item, type1_items);
+				var type1_found = $.inArray(item.toLowerCase(), type1_items);
 				if (type1_found > -1) {
 					var type1_string_existing = $("#type1_string").html();
 					if (type1_string_existing.length > 0) {
 						var type1_string_existing = type1_string_existing.replace(/"/g, '');
 						var type1_string_existing_array = type1_string_existing.split(',');
-						var found = $.inArray(item, type1_string_existing_array);
+						var found = $.inArray(item.toLowerCase(), type1_string_existing_array);
 						if (found > -1) {
 							return false;
 						} else {
@@ -181,7 +201,7 @@ $(document).ready(function() {
 						$("#type2_string").html('"' + item + '"');
 					}
 				}
-				var sideitem_found = $.inArray(item, sideitems_array);
+				var sideitem_found = $.inArray(item.toLowerCase(), sideitems_array);
 				if (sideitem_found > -1) {
 					$("#current_side_items").append(item + '<br />');
 				} else {
