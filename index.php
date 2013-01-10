@@ -68,6 +68,7 @@ require("session.php");
 				<th>Bandit Kills</th>
 				<th>Time Alive</th>
 				<th>Last Update</th>
+				<th>First Seen</th>
 				<th>Position</th>
 			</tr>
 			<tr class="row_playerdata">
@@ -77,6 +78,7 @@ require("session.php");
 				<td id="table_bkills"></td>
 				<td id="table_talive"></td>
 				<td id="table_lupdate"></td>
+				<td id="table_first_seen"></td>
 				<td id="table_pos"></td>
 			</tr>
 		</table>
@@ -84,10 +86,6 @@ require("session.php");
 			<a href="" onclick="return false;" id="setgear_btn" alt="Set new gear for selected player">Choose Gear</a>
 			<a href="" id="hide_gear_selection" alt="Hide Gear Selection Menu">Hide Gear Selection Menu</a>
 		</div>
-	</div>
-	<div id="player_search_results">
-		<h2>Search Results</h2>
-	
 	</div>
 	<div id="gear_selection">
 		<h2>Select Gear</h2>
@@ -136,7 +134,7 @@ require("session.php");
 						<OPTION VALUE="M16A4_GL">M16A4 + M203</OPTION>
 						<OPTION VALUE="M24">M24</OPTION>
 						<!--<OPTION VALUE="M24_des_EP1">M24 Desert</OPTION>-->
-						<OPTION VALUE="M240">M240</OPTION>
+						<!--<OPTION VALUE="M240">M240</OPTION>-->
 						<!--<OPTION VALUE="m240_scoped_EP1">M240 Scope</OPTION>-->
 						<OPTION VALUE="M249_DZ">M249</OPTION>
 						<!--<OPTION VALUE="M249_EP1">M249_EP1</OPTION>
@@ -171,7 +169,7 @@ require("session.php");
 						<OPTION VALUE="MG36_camo">MG36_camo</OPTION>
 						<OPTION VALUE="Mk_48_DZ">Mk48</OPTION>
 						<OPTION VALUE="M107_DZ">M107</OPTION>
-						<OPTION VALUE="PK_DZN">PK</OPTION>
+						<OPTION VALUE="PK_DZN">PK (Namalsk ONLY)</OPTION>
 						<!--<OPTION VALUE="Mk13_EP1">Mk13_EP1</OPTION>-->
 						<OPTION VALUE="MP5A5">MP5A5</OPTION>
 						<OPTION VALUE="MP5SD">MP5SD</OPTION>
@@ -212,8 +210,10 @@ require("session.php");
 						<OPTION VALUE="Bizon_Silenced">bizon_silenced</OPTION>
 						<OPTION VALUE="HuntingRifle">huntingrifle</OPTION>
 						<OPTION VALUE="LeeEnfield">LeeEnfield</OPTION>
-						<OPTION VALUE="Pecheneg_DZN">PKP</OPTION>
-						<OPTION VALUE="KSVK_DZN">KSVK</OPTION>
+						<OPTION VALUE="Pecheneg_DZN">PKP (Namalsk ONLY)</OPTION>
+						<OPTION VALUE="Pecheneg">PKP (All other maps)</OPTION>
+						<OPTION VALUE="KSVK_DZN">KSVK (Namalsk ONLY)</OPTION>
+						<OPTION VALUE="KSVK">KSVK (All other maps)</OPTION>
 						<OPTION VALUE="RPK_74">RPK_74</OPTION>
 						<!--<OPTION VALUE="Sa58P_EP1">Sa58P_EP1</OPTION>
 						<OPTION VALUE="Sa58V_CCO_EP1">Sa58V_CCO_EP1</OPTION>
@@ -226,7 +226,8 @@ require("session.php");
 						<OPTION VALUE="SVD_NSPU_EP1">SVD_NSPU_EP1</OPTION>
 						<OPTION VALUE="VSS_vintorez">VSS_vintorez</OPTION>
 						<OPTION VALUE="M136">M136</OPTION>-->
-						<OPTION VALUE="nsw_er7s">NAC ER7 Railgun</OPTION>
+						<OPTION VALUE="nsw_er7s">NAC ER7 Railgun Sniper (Namalsk ONLY)</OPTION>
+						<OPTION VALUE="nsw_er7a">NAC ER7 Railgun Assault (Namalsk ONLY)</OPTION>
 					</select>
 					<button id="add_button_maingun" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -324,7 +325,7 @@ require("session.php");
 						<OPTION VALUE="NVGoggles">NVGoggles</OPTION>
 						<OPTION VALUE="ItemCompass">ItemCompass</OPTION>
 						<OPTION VALUE="ItemGPS">ItemGPS</OPTION>
-						<OPTION VALUE="APSI">APSI (Emission Protection)</OPTION>
+						<OPTION VALUE="APSI">APSI (Emission Protection)(Namalsk ONLY)</OPTION>
 						<OPTION VALUE="ItemMap">ItemMap</OPTION>
 						<!--<OPTION VALUE="ItemRadio">ItemRadio</OPTION>-->
 						<OPTION VALUE="ItemWatch">ItemWatch</OPTION>
@@ -372,6 +373,7 @@ require("session.php");
 						<OPTION VALUE="SmokeShellRed">Smoke Grenade (Red)</OPTION>
 						<OPTION VALUE="SmokeShellGreen">Smoke Grenade (Green)</OPTION>
 						<OPTION VALUE="ItemTent">Tent</OPTION>
+						<OPTION VALUE="mut_heart">Bloodsucker Heart (Namalsk ONLY)</OPTION>
 					</select>
 					<button id="add_button_item" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -382,10 +384,10 @@ require("session.php");
 					<select name="backpack" id="backpack_item">
 						<OPTION VALUE="DZ_Patrol_Pack_EP1">Coyote Patrol Pack (8 slots)</OPTION>
 						<OPTION VALUE="DZ_Assault_Pack_EP1">ACU Assault Pack (12 slots)</OPTION>
-						<OPTION VALUE="DZ_CivilBackpack_EP1">Czech BackPack (16 slots)</OPTION>
+						<OPTION VALUE="DZ_CivilBackpack_EP1">Czech Backpack (16 slots)</OPTION>
 						<OPTION VALUE="DZ_ALICE_Pack_EP1">ALICE Pack (20 slots)</OPTION>
+						<OPTION VALUE="BAF_AssaultPack_DZN">BAF Backpack (22 slots)(Namalsk ONLY)</OPTION>
 						<OPTION VALUE="DZ_Backpack_EP1">Coyote Backpack (24 slots)</OPTION>
-						<OPTION VALUE="BAF_AssaultPack_DZN">Namalsk Assault Pack (? slots)</OPTION>
 					</select>
 					<button id="add_button_backpack" type="submit" value="add" name="submit" >ADD</button>
 				</div>
@@ -398,12 +400,12 @@ require("session.php");
 						<OPTION VALUE="SurvivorW2_DZ">Survivor 2 (Female)</OPTION>
 						<OPTION VALUE="Camo1_DZ">Camo Clothing</OPTION>
 						<OPTION VALUE="Sniper1_DZ">Ghillie Suit</OPTION>
-						<OPTION VALUE="Sniper1W_DZN">Ghillie Suit (White)</OPTION>
+						<OPTION VALUE="Sniper1W_DZN">Ghillie Suit (White)(Namalsk ONLY)</OPTION>
 						<OPTION VALUE="Rocket_DZ">Rocket's</OPTION>
 						<OPTION VALUE="Soldier1_DZ">Soldier</OPTION>
 						<OPTION VALUE="Bandit1_DZ">Bandit</OPTION>
-						<OPTION VALUE="CamoWinter_DZN">Winter Camo</OPTION>
-						<OPTION VALUE="CamoWinterW_DZN">Winter Camo (White)</OPTION>
+						<OPTION VALUE="CamoWinter_DZN">Winter Camo (Namalsk ONLY)</OPTION>
+						<OPTION VALUE="CamoWinterW_DZN">Winter Camo (White)(Namalsk ONLY)</OPTION>
 						<OPTION VALUE="Survivor3_DZ">Hero Outfit</OPTION>
 					</select>
 					<button id="add_button_skin" type="submit" value="add" name="submit" >ADD</button>
@@ -427,6 +429,10 @@ require("session.php");
 			<a href="" id="save_custom_loadout" onclick="return false;" alt="Save selected loadout as a preset">Save Loadout as Preset</a>&nbsp;&nbsp;
 			<a href="" id="load_custom_loadout" onclick="return false;" alt="Load previously save gear preset">Load Saved Preset</a>&nbsp;&nbsp;
 		</div>
+	</div>
+	<div id="player_search_results">
+		<h2>Search Results</h2>
+	
 	</div>
 	<br />
 	<br />
