@@ -7,9 +7,9 @@ require("session.php");
 require("hive_connect.php");
 
 //$cleanup_options = $_POST['cleanupOptions'];
-$cleanDeadPlayers = preg_replace('#[01]#', '', $_POST['deadplayers']);
-$cleanWireFences = preg_replace('#[01]#', '', $_POST['wires']);
-$cleanDamagedVehicles = preg_replace('#[01]#', '', $_POST['vehicles']);
+$cleanDeadPlayers = preg_replace('#[^01]#', '', $_POST['deadplayers']);
+$cleanWireFences = preg_replace('#[^01]#', '', $_POST['wires']);
+$cleanDamagedVehicles = preg_replace('#[^01]#', '', $_POST['vehicles']);
 
 
 function cleanup_hive($options,$dbhandle) {
