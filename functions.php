@@ -12,7 +12,7 @@ function getPlayerDataID($playerid,$dbhandle) {
 	// Bliss Schema v0.20
 	//$qry = $dbhandle->prepare("SELECT `survivor`.`id`, `survivor`.`unique_id`, `profile`.`name`, `survivor`.`zombie_kills`, `survivor`.`survivor_kills`, `survivor`.`bandit_kills`, `survivor`.`start_time`, `survivor`.`last_update`, `survivor`.`pos` FROM survivor, profile where `survivor`.`unique_id` = `profile`.`unique_id` AND `survivor`.`is_dead`=0 AND `survivor`.`unique_id`=?");
 	//Bliss Schema v0.26
-	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE AND s.unique_id=? ORDER BY last_updated DESC LIMIT 50");
+	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE AND s.unique_id=? ORDER BY last_updated DESC LIMIT 50");
 	// Old HIVE Schema
 	//$qry = $dbhandle->prepare("SELECT id,uid,name,kills,survivor_kills,bkills,survival,lastupdate FROM main WHERE uid=? AND death=0");
 	$qry->execute(array($playerid));
@@ -27,7 +27,7 @@ function getPlayerDataName($playername,$dbhandle) {
 	// Bliss Schema v0.20
 	//$qry = $dbhandle->prepare("SELECT `survivor`.`id`, `survivor`.`unique_id`, `profile`.`name`, `survivor`.`zombie_kills`, `survivor`.`survivor_kills`, `survivor`.`bandit_kills`, `survivor`.`start_time`, `survivor`.`last_update`, `survivor`.`pos` FROM survivor, profile where `survivor`.`unique_id` = `profile`.`unique_id` AND `survivor`.`is_dead`=0 AND `profile`.`name`=?");
 	//Bliss Schema v0.26
-	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE p.name LIKE ? ORDER BY last_updated DESC LIMIT 50");
+	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE p.name LIKE ? ORDER BY last_updated DESC LIMIT 50");
 	// Old HIVE Schema
 	//$qry = $dbhandle->prepare("SELECT id,uid,name,kills,survivor_kills,bkills,survival,lastupdate FROM main WHERE name=? AND death=0");
 	$qry->execute(array('%'.$playername.'%'));
@@ -40,7 +40,7 @@ function getPlayersWithItem($searchitem,$dbhandle) {
 	// Bliss Schema v0.20
 	//$qry = $dbhandle->prepare("SELECT `survivor`.`id`, `survivor`.`unique_id`, `profile`.`name`, `survivor`.`zombie_kills`, `survivor`.`survivor_kills`, `survivor`.`bandit_kills`, `survivor`.`start_time`, `survivor`.`last_update`, `survivor`.`pos` FROM survivor, profile where `survivor`.`unique_id` = `profile`.`unique_id` AND `survivor`.`is_dead`=0 AND (`survivor`.`inventory` LIKE ? OR `survivor`.`backpack` LIKE ?)");
 	//Bliss Schema v0.26
-	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.inventory LIKE ? OR s.backpack LIKE ? ORDER BY last_updated DESC LIMIT 50");
+	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.inventory LIKE ? OR s.backpack LIKE ? ORDER BY last_updated DESC LIMIT 50");
 	//$qry->bindParam(':item', '%'.$searchitem.'%');
 	$qry->execute(array("%$searchitem%","%$searchitem%"));
 	$result = $qry->fetchAll(PDO::FETCH_NUM);
@@ -94,19 +94,19 @@ function getTopPlayers($orderby,$dbhandle) {
 		// Order by zombie kills
 		case "zombie_kills":
 			//$qry = $dbhandle->prepare("SELECT survivor.id,survivor.unique_id,name,zombie_kills,survivor_kills,bandit_kills,start_time,last_update,pos FROM survivor, profile WHERE is_dead=0 AND profile.unique_id=survivor.unique_id AND (DATEDIFF(last_update,now()) > -7) ORDER BY zombie_kills DESC LIMIT 10");
-			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.zombie_kills DESC LIMIT 10");
+			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.zombie_kills DESC LIMIT 10");
 			break;
 		case "survivor_kills":
 			//$qry = $dbhandle->prepare("SELECT survivor.id,survivor.unique_id,name,zombie_kills,survivor_kills,bandit_kills,start_time,last_update,pos FROM survivor, profile WHERE is_dead=0 AND profile.unique_id=survivor.unique_id AND (DATEDIFF(last_update,now()) > -7) ORDER BY survivor_kills DESC LIMIT 10");
-			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.survivor_kills DESC LIMIT 10");
+			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.survivor_kills DESC LIMIT 10");
 			break;
 		case "bandit_kills":
 			//$qry = $dbhandle->prepare("SELECT survivor.id,survivor.unique_id,name,zombie_kills,survivor_kills,bandit_kills,start_time,last_update,pos FROM survivor, profile WHERE is_dead=0 AND profile.unique_id=survivor.unique_id AND (DATEDIFF(last_update,now()) > -7) ORDER BY bandit_kills DESC LIMIT 10");
-			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.bandit_kills DESC LIMIT 10");
+			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.bandit_kills DESC LIMIT 10");
 			break;
 		case "start_time":
 			//$qry = $dbhandle->prepare("SELECT survivor.id,survivor.unique_id,name,zombie_kills,survivor_kills,bandit_kills,start_time,last_update,pos FROM survivor, profile WHERE is_dead=0 AND profile.unique_id=survivor.unique_id AND (DATEDIFF(last_update,now()) > -7) ORDER BY start_time LIMIT 10");
-			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY s.start_time DESC LIMIT 10");
+			$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.is_dead=0 AND (DATEDIFF(last_updated,now()) > -7) ORDER BY hours_old DESC LIMIT 10");
 			break;
 		//default:
 		//	$qry = $dbhandle->prepare("SELECT survivor.id,survivor.unique_id,name,zombie_kills,survivor_kills,bandit_kills,start_time,last_update FROM survivor NATURAL JOIN profile WHERE is_dead=0 ORDER BY zombie_kills DESC");
