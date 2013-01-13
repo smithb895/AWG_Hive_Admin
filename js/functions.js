@@ -197,7 +197,7 @@ function fetch_data(postdata) {
 				var num_results = result_rows_array.length;
 			}
 			$("#player_search_results").append('<h3>Found '+ num_results +' results</h3><br />');
-			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>First Seen</th><th>Gear</th><th>Position</th><th>Map</th></tr>';
+			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>First Seen</th><th>Position</th><th>Map</th></tr>';
 			var _count = 0;
 			$.each(result_rows_array, function() {
 				_count += 1;
@@ -240,7 +240,7 @@ function fetch_data(postdata) {
 				result_table += '<td>'+ time_alive +'</td>';	// Time alive
 				result_table += '<td>'+ row_array[7] +'</td>';	// Last update
 				result_table += '<td>'+ first_seen +'</td>';	// Date First Seen
-				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +',"'+ time_alive +'","'+ row_array[7] +'","'+ pos_display +'","'+ first_seen +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';
+				/*result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +',"'+ time_alive +'","'+ row_array[7] +'","'+ pos_display +'","'+ first_seen +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';*/
 				result_table += '<td>'+ pos_display +'</td>';
 				result_table += '<td>'+ _mapname +'</td>';
 				result_table += '</tr>';
@@ -272,7 +272,7 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 			$("#current_main_items").html('');
 			$("#current_side_items").html('');
 			// Parse gear strings and classify items by type
-			// using item type arrays from hive_admin.js
+			// using item type arrays
 			var gear_array = response.split(',~,');
 			var inventory = gear_array[0].replace(/[\[\]"]+/g, '');
 			var backpack = gear_array[1];//.replace(/[\[\]"]+/g, '');
@@ -291,13 +291,13 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 			var backpack_type2_nums = backpack_type2_items[1].replace(/[\]]+/g, '').split(',');
 			
 			// Parse backpack items
-			var _exist = $("#backpack_string_guns").html();
-			if (_exist > 0) {
+			//var _exist = $("#backpack_string_guns").html();
+			/*if (_exist > 0) {
 				for(i=0; i<backpack_type1_names.length; i++) {
 					$("#backpack_string_guns").append(',"'+ backpack_type1_names[i] +'"');
 					$("#current_backpack_inventory").append(backpack_type1_names[i] +'<br />');
 				}
-			} else {
+			} else {*/
 				$("#current_backpack_inventory").html('');
 				for(i=0; i<backpack_type1_names.length; i++) {
 					if (i==0) {
@@ -307,13 +307,13 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 					}
 					$("#current_backpack_inventory").append(backpack_type1_names[i] +'<br />');
 				}
-			}
-			var _exist = $("#backpack_string_guns_qty").html();
+			//}
+			/*var _exist = $("#backpack_string_guns_qty").html();
 			if (_exist > 0) {
 				for(i=0; i<backpack_type1_nums.length; i++) {
 					$("#backpack_string_guns_qty").append(','+ backpack_type1_nums[i]);
 				}
-			} else {
+			} else {*/
 				for(i=0; i<backpack_type1_nums.length; i++) {
 					if (i == 0) {
 						$("#backpack_string_guns_qty").append(backpack_type1_nums[i]);
@@ -321,16 +321,16 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 						$("#backpack_string_guns_qty").append(','+ backpack_type1_nums[i]);
 					}
 				}
-			}
+			//}
 			// Type 2 items in backpack
-			var _exist = $("#backpack_string_items").html();
+			/*var _exist = $("#backpack_string_items").html();
 			if (_exist > 0) {
 				for(i=0; i<backpack_type2_names.length; i++) {
 					$("#backpack_string_items").append(',"'+ backpack_type2_names[i] +'"');
 					$("#current_backpack_inventory").append(backpack_type2_names[i] +'<br />');
 				}
-			} else {
-				$("#current_backpack_inventory").html('');
+			} else {*/
+				//$("#current_backpack_inventory").html('');
 				for(i=0; i<backpack_type2_names.length; i++) {
 					if (i == 0) {
 						$("#backpack_string_items").append('"'+ backpack_type2_names[i] +'"');
@@ -339,13 +339,13 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 					}
 					$("#current_backpack_inventory").append(backpack_type2_names[i] +'<br />');
 				}
-			}
-			var _exist = $("#backpack_string_items_qty").html();
+			//}
+			/*var _exist = $("#backpack_string_items_qty").html();
 			if (_exist > 0) {
 				for(i=0; i<backpack_type2_nums.length; i++) {
 					$("#backpack_string_items_qty").append(','+ backpack_type2_nums[i]);
 				}
-			} else {
+			} else {*/
 				for(i=0; i<backpack_type2_nums.length; i++) {
 					if (i == 0) {
 						$("#backpack_string_items_qty").append(backpack_type2_nums[i]);
@@ -353,7 +353,8 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 						$("#backpack_string_items_qty").append(','+ backpack_type2_nums[i]);
 					}
 				}
-			}
+			//}
+			// Populate backpack name field with name of backpack
 			$("#backpack_string_name").html('"'+backpack_name+'"');
 			$("#current_backpack").html(backpack_name);
 			
@@ -511,7 +512,7 @@ function fetch_top_players(orderby) {
 				var num_results = result_rows_array.length;
 			}
 			//$("#player_search_results").append('<h3>Found '+ num_results +' results</h3><br />');
-			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>First Seen</th><th>Gear</th><th>Position</th><th>Map</th></tr>';
+			var result_table = '<table id="table_playerdata"><tr id="row_fieldname"><th>Name</th><th>PlayerID</th><th>Dead?</th><th>Zombie Kills</th><th>Murders</th><th>Bandit Kills</th><th>Time Alive</th><th>Last Update</th><th>First Seen</th><th>Position</th><th>Map</th></tr>';
 			var _count = 0;
 			$.each(result_rows_array, function() {
 				_count += 1;
@@ -554,7 +555,7 @@ function fetch_top_players(orderby) {
 				result_table += '<td>'+ time_alive +'</td>';	// Time alive
 				result_table += '<td>'+ row_array[7] +'</td>';	// Last update
 				result_table += '<td>'+ first_seen +'</td>';	// Date First Seen
-				result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +',"'+ time_alive +'","'+ row_array[7] +'","'+ pos_display +'","'+ first_seen +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';
+				/*result_table += '<td><a href="" onClick=\'fetch_inventory('+ row_array[0] +','+ row_array[1] +',"'+ row_array[2] +'",'+ row_array[3] +','+ row_array[4] +','+ row_array[5] +',"'+ time_alive +'","'+ row_array[7] +'","'+ pos_display +'","'+ first_seen +'");return false;\' id="view_gear" alt="View Players Gear">View</a></td>';*/
 				result_table += '<td>'+ pos_display +'</td>';
 				result_table += '<td>'+ _mapname +'</td>';
 				result_table += '</tr>';
