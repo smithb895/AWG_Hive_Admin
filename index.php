@@ -404,6 +404,7 @@ require("session.php");
 						<OPTION VALUE="Rocket_DZ">Rocket's</OPTION>
 						<OPTION VALUE="Soldier1_DZ">Soldier</OPTION>
 						<OPTION VALUE="Bandit1_DZ">Bandit</OPTION>
+						<OPTION VALUE="BanditW1_DZ">Bandit (Female)</OPTION>
 						<OPTION VALUE="CamoWinter_DZN">Winter Camo (Namalsk ONLY)</OPTION>
 						<OPTION VALUE="CamoWinterW_DZN">Winter Camo (White)(Namalsk ONLY)</OPTION>
 						<OPTION VALUE="Survivor3_DZ">Hero Outfit</OPTION>
@@ -427,7 +428,7 @@ require("session.php");
 			<a href="" onclick="clear_inventory(); return false;" alt="Clear currently selected gear">Clear Inventory</a>
 			<br />
 			<a href="" id="save_custom_loadout" onclick="return false;" alt="Save selected loadout as a preset">Save Loadout as Preset</a>&nbsp;&nbsp;
-			<a href="" id="load_custom_loadout" onclick="return false;" alt="Load previously save gear preset">Load Saved Preset</a>&nbsp;&nbsp;
+			<a href="" id="load_custom_loadout" onclick="return false;" alt="Load previously saved gear preset">Load Saved Preset</a>&nbsp;&nbsp;
 		</div>
 	</div>
 	<div id="player_search_results">
