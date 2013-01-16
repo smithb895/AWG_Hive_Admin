@@ -16,6 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Create hive_admin database
+--
+CREATE DATABASE hive_admin;
+USE hive_admin;
+
+--
 -- Table structure for table `blocked_ips`
 --
 
