@@ -101,7 +101,7 @@ $(document).ready(function() {
 					$("#backpack_string_items_qty").html('1');
 				}
 			} else {
-				$("#current_main_inventory").append(mainammo + '<br />');
+				$("#current_main_items").append(mainammo + '<br />');
 				var type2_string_existing = $("#type2_string").html();
 				if (type2_string_existing.length > 0) {
 					$("#type2_string").append(',"' + mainammo + '"');
