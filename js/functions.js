@@ -218,12 +218,16 @@ function fetch_data(postdata) {
 				} else {
 					var time_alive = hours_alive + " hrs";
 				}
-				var pos = row_array[8].replace(/[\[\]]+/g, '').split(',');
-				var pos_azimuth = pos[0];
-				var pos_x = roundNumber(pos[1],0);
-				var pos_y = roundNumber(pos[2],0);
-				var pos_z = roundNumber(pos[3],0);
-				var pos_display = pos_x+','+pos_y+','+pos_z;
+				if (row_array[8] < 3) {
+					var pos_display = 'Unknown';
+				} else {
+					var pos = row_array[8].replace(/[\[\]]+/g, '').split(',');
+					var pos_azimuth = pos[0];
+					var pos_x = roundNumber(pos[1],0);
+					var pos_y = roundNumber(pos[2],0);
+					var pos_z = roundNumber(pos[3],0);
+					var pos_display = pos_x+','+pos_y+','+pos_z;
+				}
 				var is_dead = 'No';
 				if (row_array[9] == 1) {
 					is_dead = 'Yes';
