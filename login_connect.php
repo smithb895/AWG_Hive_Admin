@@ -1,10 +1,14 @@
 <?php
 //session_start();
-require("session.php");
-require("config.php");
+require_once("session.php");
+require_once("config.php");
 
 //function loginconnect() {
-$dbhandle2 = new PDO("mysql:host=$adminsdb_address;dbname=$adminsdb_db", $adminsdb_user, $adminsdb_pass);
+try {
+	$dbhandle2 = new PDO("mysql:host=$adminsdb_address;dbname=$adminsdb_db", $adminsdb_user, $adminsdb_pass);
+} catch (PDOException $err) {
+	die($err->getMessage());
+}
 //return $dbhandle;
 //}
 

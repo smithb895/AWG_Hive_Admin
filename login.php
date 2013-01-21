@@ -3,7 +3,7 @@
 //require("session.php");
 
 //session_start();
-require("login_connect.php");
+require_once("login_connect.php");
 $username = $_POST['username'];
 $password = $_POST['password'];
 
