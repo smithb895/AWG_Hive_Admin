@@ -138,7 +138,24 @@ function parseResults($results) {
 	return $result_string;
 }
 
-
+function stringSplitSQL($inputString, $columnName) {
+	$safe = '';
+	$validchars = '#[^0-9a-z_ \.,\-+]#i';
+	if (preg_match($validchars, $inputString)) {
+		$stringsplit = preg_split($validchars, $inputString);
+		for ($i=0; $i<count($stringsplit); $i++) {
+			if ($i != 0) {
+				$safe .= ' AND '.$columnName.' LIKE %'.$stringsplit[$i].'%';
+			} else {
+				$safe = '%'.$stringsplit[$i].'%';
+			}
+		}
+	} else {
+		$safe = '%'.$inputString.'%';
+	}
+	
+	return $safe;
+}
 
 
 ?>

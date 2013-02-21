@@ -1,6 +1,6 @@
-
 /* CSS Stylesheet for AWG DayZ HIVE Admin
  * Author: Anzu
+ * Modifications: Rezel
 */
 @font-face {
     font-family: '28DaysLaterRegular';
@@ -32,12 +32,13 @@
 
 body {
 	background: url('bg/dza_bg1.png') repeat;
+	/*background-color: #000;*/
 }
 strong {
 	font-weight:900;
 }
 h2 {
-	color: #D00;
+	color: #585858;
 	font-size: 28px;
 	font-family: '28DaysLaterRegular', Arial, sans-serif;
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
@@ -49,12 +50,12 @@ h2 {
 	font-size: 26px;
 }
 h3 {
-	color: #E00;
-	font-size: 20px;
-	font-family: Arial, sans-serif;
+	color: #AAA;
+	font-size: 18px;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 	font-weight: 200;
-	margin: 0 auto 0 6px;
+	/*margin: 0 auto 0 6px;*/
 }
 h4 {
 	font-family: Arial, sans-serif;
@@ -70,9 +71,10 @@ h4 {
 		1px -1px 0 #D00,
 		-1px 1px 0 #D00,
 		1px 1px 0 #D00;*/
-	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
+	text-shadow: 0px 0px 4px #6e5d52;
 	text-decoration: underline;
-	color: rgba(210, 0, 0, 1);
+	/*color: rgba(210, 0, 0, 1);*/
+	color: #AAA;
 	font-weight: bold;
 	/*text-align: center;*/
 }
@@ -81,14 +83,20 @@ h4:hover {
 	color: rgba(235, 0, 0, 1);
 }
 input {
+	/*color: #D6D6D6;
+	background: #292421;
+	border-color: #000000;*/
+	width: 150px;
 	color: #FFF;
 	background: rgba(140, 30, 30, .75);
-	border-color: #A00;
-	width: 150px;
+	border-color: #5f4e46;
+}
+.buttons1 {
+	width: 800px;
 }
 .buttons1 a {
 	font-size: 22px;
-	text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+	text-shadow: 0px 0px 8px #6e5d52;
 	font-family: Arial, sans-serif;
 	text-decoration: none;
 	color: rgba(210, 0, 0, 1);
@@ -105,32 +113,32 @@ input {
 	color: rgba(235, 0, 0, 1);
 }
 .buttons2 {
-	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
-	box-shadow:inset 0px 1px 0px 0px #f29c93;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
-	background:-moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
+	-moz-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	box-shadow: inset 0px 1px 0px 0px #f29c93;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+	background: -moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100');
 	/*background-color:#fe1a00;*/
-	background-color: rgba(210, 0, 0, 1);
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #d83526;
-	display:inline-block;
-	color:#000;
+	background-color: #6e5d52;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d83526;
+	display: inline-block;
+	color: #000;
 	font-family: arial, sans-serif;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #b23e35;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #b23e35;
 }
 .buttons2:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
-	background:-moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
+	background: -moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00');
-	background-color: rgba(180, 0, 0, 1);
+	background-color: #584942;
 }
 .buttons2:active {
 	position:relative;
@@ -144,20 +152,25 @@ input {
 	text-align: center;
 	font-family: '28DaysLaterRegular', Arial, sans-serif;
 	font-size: 36px;
-	color: #D00;
+	color: #999;
 	/*text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);*/
 	background: url('bg/header_bg.png') no-repeat;
 }
-
+.mainMenu
+{
+	margin:0 auto;
+}
+	
 #main {
 	margin: 0 auto;
 	/*min-width: 710px;*/
 	width: 1000px;
-	min-height: 700px;
+	min-height: 1000px;
 	max-height: 2000px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
+	/*background: #000 url('bg/bg5.png') no-repeat;*/
 	background: #000 url('bg/blood_splatter.png') no-repeat;
 	border-style: solid;
 	border-width: medium;
@@ -183,7 +196,7 @@ input {
 #labels {
 	font-family: 'october_crowregular', Arial, sans-serif;
 	font-weight: strong;
-	text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+	text-shadow: 0px 0px 12px rgba(#666);
 	font-size: 20px;
 	color: #000;
 	letter-spacing: 3px;
@@ -196,6 +209,7 @@ input {
 }
 #player_selection {
 	margin: 0 auto;
+	float:center;
 	width: 100%;
 	height: auto;
 	display: inline-block;
@@ -216,13 +230,13 @@ input {
 	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
 	font-family: Arial, sans-serif;
 	text-decoration: underline;
-	color: rgba(210, 0, 0, 1);
+	color: #584942;
 	font-weight: bold;
 	text-align: center;
 }
 #gear_selection a:hover {
 	text-shadow: 0px 0px 6px rgba(235, 0, 0, 1);
-	color: rgba(235, 0, 0, 1);
+	color: #584942;
 }
 	
 #gear_strings {
@@ -256,7 +270,7 @@ input {
 	display: inline-block;
 }
 #inventory_string, #backpack_string {
-	color: #D00;
+	color: #585858;
 	font-size: 17px;
 	letter-spacing: 1px;
 	width: auto;
@@ -265,7 +279,7 @@ input {
 	max-height: 300px;*/
 	border-style: dashed;
 	border-width: 2px;
-	border-color: #D00;
+	border-color: #5f4e46;
 	background: rgba(0, 0, 0, .7);
 	padding: 5px 5px 5px 5px;
 	overflow: auto;
@@ -289,47 +303,47 @@ input {
 .inventory_tables td {
 	width: 25px;
 	height: 25px;
-	background: rgba(255, 255, 255, .8);
+	background: #584942;
 }
 .inventory_tables td:hover {
 	background: rgba(220, 150, 150, .7);
 }
 #table_playerdata, #table_playerdata th, #table_playerdata td {
 	margin: 0 auto;
-	border: 1px solid #D00;
+	border: 1px solid  #584942;
 	border-collapse: collapse;
 	padding: 2px 6px 2px 6px;
 	text-align: center;
 }
 #table_playerdata td:hover {
 	background: rgba(140, 30, 30, .3);
-	color: #FF5900;
-	text-shadow: 0px 0px 6px rgba(255, 89, 0, 1);
+	color: #5f4e46;
+	/*text-shadow: 0px 0px 6px rgba(#5f4e46); */
 }
 #row_fieldname {
 	font-family: 'october_crowregular', Arial, sans-serif;
 	font-size: 18px;
-	color: #000;
+	color: #584942;
 	letter-spacing: 2px;
 	font-weight: strong;
 	text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
 	background: rgba(0, 0, 0, .8);
-	text-shadow:
-		-1px -1px 0 #D00,
-		1px -1px 0 #D00,
-		-1px 1px 0 #D00,
-		1px 1px 0 #D00;
+	text-shadow: -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; 
 }
 .row_playerdata {
+	
 	font-family: Arial, sans-serif;
-	color: #FF5900;
+	color: #5f4e46;
 	margin: 0 auto;
 	text-shadow: 0px 0px 4px rgba(255, 89, 0, 1);
 	background: rgba(0, 0, 0, .6);
 }
 .row_playerdata:hover {
 	background: rgba(100, 0, 0, .2);
-	color: #FF4900;
+	color: #5f4e46;
 	text-shadow: 0px 0px 6px rgba(255, 89, 0, .9);
 }
 #stats_header {
@@ -342,15 +356,13 @@ input {
 #player_name {
 	color: #FFF;
 	background: rgba(140, 30, 30, .75);
-	border-color: #A00;
-	width: 150px;
+	border-color: #5f4e46;
 }
 /* Input form for player ID */
 #player_id {
 	color: #FFF;
 	background: rgba(140, 30, 30, .75);
-	border-color: #A00;
-	width: 150px;
+	border-color: #584942;
 }
 #player_search_results {
 	color: #FFF;
@@ -358,12 +370,12 @@ input {
 }
 #view_gear {
 	background: rgba(140, 30, 30, .3);
-	color: #FF5900;
+	color: #5f4e46;
 	text-shadow: 0px 0px 6px rgba(255, 89, 0, 1);
 }
 #view_gear:hover {
 	background: rgba(150, 40, 40, .4);
-	color: #FF5900;
+	color: #5f4e46;
 	text-shadow: 0px 0px 8px rgba(255, 40, 40, 1);
 }
 #setgear_btn {
@@ -372,7 +384,7 @@ input {
 	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
 	font-family: Arial, sans-serif;
 	text-decoration: underline;
-	color: rgba(210, 0, 0, 1);
+	color: #95847c;
 	font-weight: bold;
 	margin: 0 auto;
 	text-align: center;
@@ -389,7 +401,7 @@ input {
 	font-size: 20px;
 	text-align: right;
 	/*margin: 0 auto;*/
-	color: #D00;
+	color: #5f4e46;
 	font-family: '28DaysLaterRegular', Arial, sans-serif;
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 	font-weight: 400;
@@ -428,7 +440,7 @@ input {
 	text-shadow: 0px 0px 4px rgba(210, 0, 0, .8);
 	font-family: Arial, sans-serif;
 	text-decoration: underline;
-	color: rgba(210, 0, 0, 1);
+	color: #95847c;
 	font-weight: bold;
 	margin: 0 auto;
 	text-align: center;
@@ -438,6 +450,7 @@ input {
 #top_players_btn {
 	margin: 0 auto;
 	text-align: center;
+	float: center;
 }
 #loginform {
 	text-align: center;
@@ -446,9 +459,14 @@ input {
 #current_id {
 	display: none;
 }
-#top_players_btn a {
+#top_players_btn a 
+{
+	margin: 0 auto;
+	float: center;
 }
-
+#current_player {
+	visibility: hidden;
+}
 #current_player_buttons {
 	margin: 0 auto;
 	text-align: center;
@@ -456,4 +474,172 @@ input {
 	padding-top: 50px;
 	padding-right: 150px;
 	margin-bottom: 10px;
+}
+ul.menulist {
+	
+}
+.menulist li {
+	text-align: center;
+	vertical-align: middle;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
+	/*background: url('../images/buttons/topnav_btn.png') no-repeat;*/
+	float: left;
+	width: 150px;
+	/*height: 43px;*/
+	margin: 0 10px;
+	position: relative;
+}
+.menulist li:hover {
+	/*background: url('../images/buttons/topnav_btn_hand.png') no-repeat;*/
+}
+ul.submenulist li {
+	/*background: #000;*/
+	text-align: left;
+}
+ul.submenulist li:hover {
+	/*background: #000;*/
+}
+.menulist li a {
+	color: #AAA;
+	/*width: 150px;
+	height: 43px;
+	padding-left: 10px;*/
+	text-align: center;
+	font-size: 18px;
+	font-family: 'october_crowregular', Arial, sans-serif;
+	letter-spacing: 2px;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	line-height: 43px;
+	cursor: pointer;
+	display: block;
+	float: left;
+	text-decoration: none;
+}
+.menulist li a:hover {
+    background: url('../images/buttons/topnav_btn_hand_only.png') no-repeat;
+}
+.menulist li span {
+    width: 17px;
+    height: 43px;
+    float: left;
+}
+.menulist li span.subhover {
+    background-position: center bottom;
+    cursor: pointer;
+}
+.menulist li ul.submenulist {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 43px;
+    /*margin: 0;
+    padding: 0;*/
+    display: none;
+    float: left;
+    width: 150px;
+    border: 1px solid #111;
+}
+.menulist li ul.submenulist li {
+    border-top: 1 px solid #252525;
+    border-bottom: 1px solid #444;
+    clear: both;
+    width: 150px;
+}
+.menulist li ul.submenulist li a {
+    float: left;
+    width: 145px;
+}
+.menulist li ul.submenulist li a:hover {
+    /*background: url('../images/buttons/topnav_btn_hand.png') no-repeat;*/
+}
+.submenulist {
+	/*background: #FFF;*/
+	display: none;
+	padding: 0px;
+	width: 150px;
+}
+.submenulist li {
+	margin: 0px;
+	float: left;
+	padding: 0px;
+}
+
+ul.submenulist {
+	/*background: #000;*/
+}
+/*
+.topnav_btn {
+	color: #AAA;
+	width: 150px;
+	height: 43px;
+	padding-left: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-family: '28DaysLaterRegular', Arial, sans-serif;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+	line-height: 43px;
+	cursor: pointer;
+}
+*/
+/*
+.topnav:hover {
+	background: url('../images/buttons/topnav_btn_hand.png') no-repeat;
+}
+ul.menulist {
+	list-style: none;
+}
+*/
+
+.submenulist {
+	/*list-style: none;*/
+	/*visibility: hidden;*/
+	display: none;
+	padding: 0px;
+	width: 150px;
+	/*background: url('../images/buttons/topnav_btn.png') no-repeat;*/
+	background: url('bg/menu_bg1.png');
+}
+.submenulist li {
+	/*ackground: url('../images/buttons/topnav_btn.png') no-repeat;*/
+}
+.dropdownmenu {
+	background: #000;
+	z-index: 100;
+}
+.submenulist input {
+	width: 90%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+h5 {
+	margin-bottom: 8px;
+	font-size: 18px;
+	line-height: 22px;
+	color: #CCC;
+	text-shadow: 0px 0px 8px rgba(200, 200, 200, .8);
+}
+.submenu_content {
+	background: url('bg/menu_bg1.png');
+}
+.default_links {
+	color: #F00;
+	font-weight: bold;
+}
+.default_links a:visited {
+	color: #F00;
+	font-weight: bold;
+}
+.default_links a:hover {
+	color: #C00;
+	font-weight: bold;
+	text-shadow: 0px 0px 8px rgba(200, 200, 200, .8);
+}
+#vip_loadout_info {
+	height: 80px;
+	width: 100%;
+	/*display: none;*/
+}
+li h5 {
+	font-family: 'october_crowregular', Arial, sans-serif;
+	letter-spacing: 2px;
 }
