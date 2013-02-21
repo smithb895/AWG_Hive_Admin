@@ -422,8 +422,16 @@ function fetch_inventory(id,uid,name,kills,hkills,bkills,talive,lupdate,pos,firs
 	$("#table_pos").html(pos);
 	$("#table_first_seen").html(first_seen);
 	$("#current_id").html(id);
+	showPlayerSelected();
 	hideGearSelection();
 	return false;
+}
+
+function showPlayerSelected() {
+	var cssRules = {
+			'visibility' : 'visible'
+	}
+	$("#current_player").css(cssRules);
 }
 
 function hideGearSelection() {		
@@ -440,16 +448,17 @@ function hideGearSelection() {
 	});
 	$("#hide_gear_selection").animate({
 		opacity: 0,
-		padding: '0px 0px 20px 0px',
-		display: 'none'
+		padding: '0px 0px 20px 0px'
 	}, 800, function() {
 		//$("#hide_gear_selection").hide();
 	});
+	$("#hide_gear_selection").css('visibility', 'hidden');
 	$("#setgear_btn").animate({
 		opacity: 1,
 		padding: '20px 0px 0px 0px',
 		display: 'inline-block'
 	}, 800, function() { });
+	$("#setgear_btn").css('visibility', 'visible');
 }
 
 function showGearSelection() {
@@ -465,6 +474,7 @@ function showGearSelection() {
 			'opacity' :'1'
 		}
 		$("#gear_selection").css(cssRules);
+		//$("#gear_selection").css('visibility', 'visible');
 	});
 }
 
@@ -588,5 +598,31 @@ function fetch_top_players(orderby) {
 		//}
 		//$("#gear_selection").css(cssRules);
 	});
+}
+
+function save_vip_loadout() {
+	var loadout_name = $("#vip_loadout_name").val();
+	var loadout_items = $("#inventory_string").html().replace(/<[^>]*>/g, '');
+	var loadout_backpack = $("#backpack_string").html().replace(/<[^>]*>/g, '');
+	var loadout_skin = $("#current_skin_text").html().replace(/<[^>]*>/g, '');
+	var postdata = 'name='+loadout_name+'&items='+loadout_items+'&backpack='+loadout_backpack+'&skin='+loadout_skin;
+	if (loadout_name.length < 3) {
+		alert('Loadout name too short. Min 3 chars');
+		return false;
+	} else if (loadout_name.length > 64) {
+		alert('Loadout name too long. Max 64 chars');
+		return false;
+	} else {
+		$.ajax({
+			type: "POST",
+			url: "save_vip_loadout.php",
+			data: postdata,
+			success: function(response) {
+				alert(response);
+			}
+		});
+	}
+	
+	return false;
 }
 
