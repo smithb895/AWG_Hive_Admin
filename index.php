@@ -10,51 +10,108 @@
 //session_start();
 require("jquery.php");
 require("session.php");
+if ($_SESSION['tier'] > 3) {
+	die('Insufficient permissions');
+	//header('Location: ../admin.php');
+}
 ?>
+<script src="js/jquery.hoverIntent.minified.js"></script>
+<script src="js/menubar.js"></script>
 
 <div id="head">
-	-=[AWG]=-<br />DayZ HIVE Admin
+	-=[AWG]=-<br />DayZ HIVE Admin<br />
 </div>
 <br />
 <div id="main">
-	<div class="buttons1" id="top_players_btn">
-		<a href="../admin.php" alt="Go back to the main admin page">[Back to Main Dashboard]</a><br />
-		<a href="https://anzuswargames.info/admins" alt="Search/View logs, Lookup Players, etc">[Search Logs]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("zombie_kills"); return false;' alt="Show Top Players - Sort by Zombie Kills">[Top Zed Kills]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("survivor_kills"); return false;' alt="Show Top Players - Sort by Survivor Kills">[Top Murderers]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("bandit_kills"); return false' alt="Show Top Players - Sort by Bandit Kills">[Top Vigilantes]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="" onclick='fetch_top_players("start_time"); return false;' alt="Show Top Players - Sort by Start Time">[Oldest Survivors]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>
-	<div id="player_selection">
-		<div class="left">
-			<h2>Find Player</h2>
-			<form method="post" onclick="return false;">
-					<h3>Name</h3>
-					<input id="player_name" name="player_name" type="text"/><br />
-					<h3>ID</h3>
-					<input id="player_id" name="player_id" type="text"/><br />
-					<button id="find_player_btn" type="submit" value="">Search</button>
-			</form>
-			<h2>Search for item</h2>
-			<form method="post" onclick="return false;">
-			<h3>Item Name</h3>
-			<input id="item_name" name="item_name" type="text"/><br />
-			<button id="search_for_item" type="submit" value="">Search</button>
-			</form>
-		</div>
-		<div class="right">
-			<div id="current_player_buttons">
-				<a href="" class="buttons2" onclick='reset_health_clicked(); return false;' alt="Restore Player Health">Restore Health</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="" class="buttons2" onclick='reset_pos_clicked(); return false;' alt="Reset Player Location">Reset Position</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="" class="buttons2" onclick='set_dead_clicked(); return false;' alt="Kill Player">Kill</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="" class="buttons2" onclick='set_alive_clicked(); return false;' alt="Revive Player">Revive</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<!--<a href="" class="buttons2" onclick='alert("Not working yet"); return false;' alt="Show On Map">Show On Map</a>&nbsp;&nbsp;&nbsp;&nbsp;-->
-			</div>
-			<h3>Position (x,y,z)</h3>
-			<input id="player_setpos" name="player_setpos" type="text"/><br />
-			<button id="setpos_btn" type="submit" value="">Set</button><br />
-		</div>
-	</div>
+  <div class="default_links">
+	<a href="../admin.php" title="Return to main Dashboard"><< Back to Main Dashboard</a>
+  </div>
+  <div class="buttons1" id="top_players_btn">
+	<!--<ul id="MenuBar2" class="MenuBarHorizontal">-->
+	<ul id="topmenu" class="menulist">
+		<li class="submenu_content">
+			<a href="#" onClick="return false;">Player Search</a>
+			<ul class="submenulist">
+				<li>
+					<h3>Find Player</h3>
+					<form method="post" onClick="return false;">
+						<h5>Name</h5>
+						<input id="player_name" name="player_name" type="text" size="15" /><br />
+						<h5>ID</h5>
+						<input id="player_id" name="player_id" type="text"/><br />
+						<button id="find_player_btn" type="submit" value="">Search</button>
+					</form>
+				</li>
+			</ul>
+		</li>
+		<li class="submenu_content">
+			<a href="#" onClick="return false;">Item Search</a>
+			<ul class="submenulist">
+				<li>
+					<form method="post" onClick="return false;">
+						<h5>Item Name</h5>
+						<input id="item_name" name="item_name" type="text"/><br />
+						<button id="search_for_item" type="submit" value="">Search</button>
+					</form>
+				</li>
+			</ul>
+	    </li>
+		<li class="submenu_content">
+			<a href="#" onClick="return false;">Top Players</a>
+			<ul class="submenulist">
+				<li>
+					<a href="https://anzuswargames.info/admins" title="Search/View logs, Lookup Players, etc">Search Logs</a>
+				</li>
+				<li>
+					<a href="" onclick='fetch_top_players("zombie_kills"); return false;' title="Show Top Players - Sort by Zombie Kills">Zed Kills</a>
+				</li>
+				<li>
+					<a href="" onclick='fetch_top_players("survivor_kills"); return false' title="Show Top Players - Sort by Survivor Kills">Murders</a>
+				</li>
+				<li>
+					<a href="" onclick='fetch_top_players("bandit_kills"); return false' title="Show Top Players - Sort by Bandit Kills">Bandit Kills</a>
+				</li>
+				<li>
+					<a href="" onclick='fetch_top_players("start_time"); return false;' title="Show Top Players - Sort by Start Time">Oldest Alive</a>
+				</li>
+			</ul>
+		</li>
+		<li class="submenu_content">
+			<a href="#" onClick="return false;">Modify Player</span>
+			<ul class="submenulist">
+				<li class="submenuitem" style="display:none;"><a href="#">Set Position</a>
+					<!--<ul>
+						<li>
+							<h5>Position (x,y,z)</h5>
+							<input id="player_setpos" name="player_setpos" type="text"/><br />
+							<button id="setpos_btn" type="submit" value="">Set</button><br />
+						</li>
+					</ul>-->
+				</li>
+				<li id="setpos_menu">
+					<h5>Position (x,y,z)</h5>
+					<input id="player_setpos" name="player_setpos" type="text"/><br />
+					<button id="setpos_btn" type="submit" value="">Set</button><br />
+				</li>
+				<li>
+					<a href="" onclick='reset_pos_clicked(); return false;' title="Reset Player Location">Reset Position</a>
+				</li>
+				<li>
+					<a href="" onclick='reset_health_clicked(); return false;' title="Restore Player Health">Restore Health</a>
+				</li>
+				<li>
+					<a href="" onclick='set_dead_clicked(); return false;' title="Kill Player">Kill Player</a>
+				</li>
+				<li>
+					<a href="" onclick='set_alive_clicked(); return false;' title="Revive Player">Revive Player</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<br />
+	<div class = "mainMenu" id = "mainMenu"> </div>
+  </div>
+	<div id="player_selection"></div>
 	<div id="current_player">
 		<div id="stats_header">
 			<h2>Currently Selected Player</h2>
@@ -83,8 +140,8 @@ require("session.php");
 			</tr>
 		</table>
 		<div class="center">
-			<a href="" onclick="return false;" id="setgear_btn" alt="Set new gear for selected player">Choose Gear</a>
-			<a href="" id="hide_gear_selection" alt="Hide Gear Selection Menu">Hide Gear Selection Menu</a>
+			<a href="" onClick="return false;" id="setgear_btn" title="Set new gear for selected player">Choose Gear</a>
+			<a href="" id="hide_gear_selection" title="Hide Gear Selection Menu">Hide Gear Selection Menu</a>
 		</div>
 	</div>
 	<div id="gear_selection">
@@ -93,7 +150,7 @@ require("session.php");
 			<form method="post" id="maingun">
 				<div>
 					<label id="labels">Main Gun</label>
-					<select name="maingun" id="maingun_item">
+				  <select name="maingun" id="maingun_item">
 						<OPTION VALUE="Remington870_Lamp">Remington 870</OPTION>
 						<OPTION VALUE="Winchester1866">Winchester 1866</OPTION>
 						<!--<OPTION VALUE="AA12_PMC">AA12</OPTION>-->
@@ -235,7 +292,7 @@ require("session.php");
 			<form method="post" id="sidearm">
 				<div>
 					<label id="labels">Sidearm</label>
-					<select name="sidearm" id="sidearm_item">
+				  <select name="sidearm" id="sidearm_item">
 						<OPTION VALUE="Colt1911">Colt1911</OPTION>
 						<OPTION VALUE="Glock17_EP1">glock17_EP1</OPTION>
 						<OPTION VALUE="M9">M9</OPTION>
@@ -254,7 +311,7 @@ require("session.php");
 			<form method="post" id="mainammo">
 				<div>
 					<label id="labels">Main Gun Ammo</label>
-					<select name="mainammo" id="mainammo_item">
+				  <select name="mainammo" id="mainammo_item">
 						<OPTION VALUE="30Rnd_762x39_AK47">30Rnd_762x39_AK47</OPTION>
 						<OPTION VALUE="30Rnd_545x39_AK">30Rnd_545x39_AK</OPTION>
 						<OPTION VALUE="30Rnd_545x39_AKSD">30Rnd_545x39_AKSD</OPTION>
@@ -287,7 +344,7 @@ require("session.php");
 			<form method="post" id="sideammo">
 				<div>
 					<label id="labels">Sidearm Ammo</label>
-					<select name="sideammo" id="sideammo_item">
+				  <select name="sideammo" id="sideammo_item">
 						<OPTION VALUE="7Rnd_45ACP_1911">7Rnd_45ACP_1911</OPTION>
 						<OPTION VALUE="15Rnd_9x19_M9">15Rnd_9x19_M9</OPTION>
 						<OPTION VALUE="15Rnd_9x19_M9SD">15Rnd_9x19_M9SD</OPTION>
@@ -319,7 +376,7 @@ require("session.php");
 			<form method="post" id="items">
 				<div>
 					<label id="labels">Items</label>
-					<select name="items" id="items_item">
+				  <select name="items" id="items_item">
 						<OPTION VALUE="Binocular">Binoculars</OPTION>
 						<OPTION VALUE="Binocular_Vector">Rangefinder</OPTION>
 						<OPTION VALUE="NVGoggles">NVGoggles</OPTION>
@@ -381,7 +438,7 @@ require("session.php");
 			<form method="post" id="backpack">
 				<div>
 					<label id="labels">Backpack</label>
-					<select name="backpack" id="backpack_item">
+				  <select name="backpack" id="backpack_item">
 						<OPTION VALUE="DZ_Patrol_Pack_EP1">Coyote Patrol Pack (8 slots)</OPTION>
 						<OPTION VALUE="DZ_Assault_Pack_EP1">ACU Assault Pack (12 slots)</OPTION>
 						<OPTION VALUE="DZ_CivilBackpack_EP1">Czech Backpack (16 slots)</OPTION>
@@ -395,7 +452,7 @@ require("session.php");
 			<form method="post" id="skin">
 				<div>
 					<label id="labels">Skin</label>
-					<select name="skin" id="skin_item">
+				  <select name="skin" id="skin_item">
 						<OPTION VALUE="Survivor2_DZ">Survivor</OPTION>
 						<OPTION VALUE="SurvivorW2_DZ">Survivor 2 (Female)</OPTION>
 						<OPTION VALUE="Camo1_DZ">Camo Clothing</OPTION>
@@ -422,17 +479,24 @@ require("session.php");
 			</form>
 		</div>
 		<div id="set_gear_buttons">
-			<a href="" id="set_inventory_button" onclick="save_gear_clicked(); return false;" alt="Clear currently selected gear">Save Inventory</a>&nbsp;&nbsp;
-			<a href="" onclick="save_backpack_clicked(); return false;" alt="Clear currently selected gear">Save Backpack</a>&nbsp;&nbsp;
-			<a href="" onclick="save_skin_clicked(); return false;" alt="Clear currently selected gear">Save Skin</a>&nbsp;&nbsp;
-			<a href="" onclick="clear_inventory(); return false;" alt="Clear currently selected gear">Clear Inventory</a>
+			<a href="" id="set_inventory_button" onClick="save_gear_clicked(); return false;" title="Clear currently selected gear">Save Inventory</a>&nbsp;&nbsp;
+			<a href="" onClick="save_backpack_clicked(); return false;" title="Clear currently selected gear">Save Backpack</a>&nbsp;&nbsp;
+			<a href="" onClick="save_skin_clicked(); return false;" title="Clear currently selected gear">Save Skin</a>&nbsp;&nbsp;
+			<a href="" onClick="clear_inventory(); return false;" title="Clear currently selected gear">Clear Inventory</a>
 			<br />
-			<a href="" id="save_custom_loadout" onclick="return false;" alt="Save selected loadout as a preset">Save Loadout as Preset</a>&nbsp;&nbsp;
-			<a href="" id="load_custom_loadout" onclick="return false;" alt="Load previously saved gear preset">Load Saved Preset</a>&nbsp;&nbsp;
+			<a href="" id="save_custom_loadout" onClick="return false;" title="Save selected loadout as a preset">Save Loadout as Preset</a>&nbsp;&nbsp;
+			<a href="" id="load_custom_loadout" onClick="return false;" title="Load previously saved gear preset">Load Saved Preset</a>&nbsp;&nbsp;
+			<br />
+			<a href="" id="save_vip_loadout" onClick="save_vip_loadout(); return false;" title="Save this loadout as a VIP template">Save as VIP Loadout</a>&nbsp;&nbsp;Loadout Name: <input id="vip_loadout_name" name="vip_loadout_name" type="text">
 		</div>
 	</div>
+	<!--<div id="vip_loadout_info">
+		<h5>Loadout Name:</h5>
+		<input id="vip_loadout_name" name="vip_loadout_name" type="text">
+		<br />
+	</div>-->
 	<div id="player_search_results">
-		<h2>Search Results</h2>
+		
 	
 	</div>
 	<br />
@@ -509,13 +573,12 @@ require("session.php");
 		</div>
 	</div>
     <div id="gear_strings">
-    	<h3>Inventory String:</h3>
+    	<h4>Inventory String:</h4>
         <div id="inventory_string">[[<a id="main_gun_string"></a>,<a id="sidearm_string"></a>,<a id="type1_string"></a>],[<a id="type2_string"></a>]]</div>
-		<h3>Backpack String:</h3>
+		<h4>Backpack String:</h4>
         <div id="backpack_string">[<a id="backpack_string_name"></a>,[[<a id="backpack_string_guns"></a>],[<a id="backpack_string_guns_qty"></a>]],[[<a id="backpack_string_items"></a>],[<a id="backpack_string_items_qty"></a>]]]</div>
     </div>
 	<div id="current_id"></div>
 </div>
-
 </body>
 </html>

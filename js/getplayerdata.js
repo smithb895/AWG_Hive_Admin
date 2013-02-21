@@ -90,18 +90,16 @@ $(document).ready(function() {
 		showGearSelection();
 		$("#setgear_btn").animate({
 			opacity: 0,
-			padding: '0px 0px 20px 0px',
-			display: 'none'
+			padding: '0px 0px 20px 0px'
 		}, 800, function() {
 			//$("#setgear_btn").hide();
 		});
-		
+		$("#setgear_btn").css('visibility', 'hidden');
 		$("#hide_gear_selection").animate({
 			opacity: 1,
-			padding: '20px 0px 0px 0px',
-			display: 'inline-block'
+			padding: '20px 0px 0px 0px'
 		}, 800, function() { });
-		
+		$("#hide_gear_selection").css('visibility', 'visible');
 	});
 	$("#hide_gear_selection").click(function() {
 		hideGearSelection();
