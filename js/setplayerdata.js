@@ -100,8 +100,9 @@ save_gear_clicked = function() {
 	if (confirm('Are you sure you want to save this player\'s inventory to the HIVE?')) {
 		var set_inventory_string = $("#inventory_string").html().replace(/<[^>]*>/g, '');
 		var id = $("#current_id").html();
+		var uid = $("#table_playerid").html();
 		//$("body").html(set_inventory_string);
-		var poststring = 'items='+ set_inventory_string +'&id='+ id;
+		var poststring = 'items='+ set_inventory_string +'&id='+ id +'&uid='+ uid;
 		set_inventory(poststring);
 	} else {
 		
@@ -113,7 +114,8 @@ save_backpack_clicked = function() {
 	if (confirm('Are you sure you want to save this player\'s backpack to the HIVE?')) {
 		var set_backpack_string = $("#backpack_string").html().replace(/<[^>]*>/g, '');
 		var id = $("#current_id").html();
-		var poststring = 'backpack='+ set_backpack_string +'&id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'backpack='+ set_backpack_string +'&id='+ id +'&uid='+ uid;
 		set_backpack(poststring);
 	} else {
 		
@@ -124,7 +126,8 @@ save_skin_clicked = function() {
 	if (confirm('Are you sure you want to save this player\'s skin to the HIVE?')) {
 		var set_skin_string = $("#current_skin_text").html().replace(/<[^>]*>/g, '');
 		var id = $("#current_id").html();
-		var poststring = 'skin='+ set_skin_string +'&id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'skin='+ set_skin_string +'&id='+ id +'&uid='+ uid;
 		//alert(poststring);
 		set_skin(poststring);
 	} else {
@@ -135,7 +138,8 @@ save_skin_clicked = function() {
 reset_health_clicked = function() {
 	if (confirm('Are you sure you want to reset this player\'s health to full?')) {
 		var id = $("#current_id").html();
-		var poststring = 'id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'id='+ id +'&uid='+ uid;
 		reset_health(poststring);
 	} else {
 		
@@ -145,7 +149,8 @@ reset_health_clicked = function() {
 reset_pos_clicked = function() {
 	if (confirm('Are you sure you want to reset this player\'s position to a random one?')) {
 		var id = $("#current_id").html();
-		var poststring = 'id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'id='+ id +'&uid='+ uid;
 		reset_pos(poststring);
 	} else {
 		
@@ -155,7 +160,8 @@ reset_pos_clicked = function() {
 set_dead_clicked = function() {
 	if (confirm('Are you sure you want to kill this player?')) {
 		var id = $("#current_id").html();
-		var poststring = 'id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'id='+ id +'&uid='+ uid;
 		set_dead(poststring);
 	} else {
 		
@@ -165,7 +171,8 @@ set_dead_clicked = function() {
 set_alive_clicked = function() {
 	if (confirm('Are you sure you want to revive this player?')) {
 		var id = $("#table_playerid").html();
-		var poststring = 'id='+ id;
+		var uid = $("#table_playerid").html();
+		var poststring = 'id='+ id +'&uid='+ uid;
 		set_alive(poststring);
 	} else {
 		

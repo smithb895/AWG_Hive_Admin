@@ -4,7 +4,7 @@
 
 require("session.php");
 require("hive_connect.php");
-
+require_once("login_connect.php");
 //if (isset($_POST['pos'])) {
 	//$set_pos = preg_replace('#[^_\[\],\.0-9+]#', '', $_POST['pos']);
 //} else {
@@ -16,15 +16,16 @@ if (isset($_POST['id'])) {
 	die("No ID specified");
 }
 
-function setalive($id,$dbhandle) {
+function setalive($id,$dbhandle,$dbhandle2) {
 	//$dbhandle = hiveconnect();
 	// SQL: update survivor set is_dead=0, medical='[]' where unique_id=698432 order by last_updated DESC limit 1;
 	$qry = $dbhandle->prepare("update survivor set is_dead=0, medical='[]' where unique_id=? order by last_updated DESC limit 1");
 	$qry->execute(array($id));
-	$dbhandle = null;
+	$qryLog = $dbhandle2->prepare("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (?,?,NOW())");
+	$qryLog->execute(array("Revive: ".$id,$_SESSION['login']));
 }
 
-setalive($id,$dbhandle);
+setalive($id,$dbhandle,$dbhandle2);
 
 
 
