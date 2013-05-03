@@ -203,7 +203,7 @@ $(document).ready(function() {
 				if (sideitem_found > -1) {
 					$("#current_side_items").append(item + '<br />');
 				} else {
-					$("#current_main_inventory").append(item + '<br />');
+					$("#current_main_items").append(item + '<br />');
 				}
 			}
 			return false;
@@ -264,8 +264,9 @@ $(document).ready(function() {
 	$("#setpos_btn").click(function() {
 		var _setpos = $("#player_setpos").val();
 		var _id = $("#current_id").html();
+		var uid = $("#table_playerid").html();
 		if ((_setpos.length > 4) && (_setpos.length < 30) && (_setpos.search(/^[0-9,]+$/) > -1)) {
-			var postdata = 'pos='+ _setpos +'&id='+ _id;
+			var postdata = 'pos='+ _setpos +'&id='+ _id +'&uid='+ uid;
 			set_pos(postdata);
 		} else {
 			alert('Invalid coordinates specified for position');
