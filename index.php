@@ -10,6 +10,7 @@
 //session_start();
 require("jquery.php");
 require("session.php");
+//require_once("login_connect.php");
 if ($_SESSION['tier'] > 3) {
 	die('Insufficient permissions');
 	//header('Location: ../admin.php');
@@ -312,6 +313,7 @@ if ($_SESSION['tier'] > 3) {
 				<div>
 					<label id="labels">Main Gun Ammo</label>
 				  <select name="mainammo" id="mainammo_item">
+						<OPTION VALUE="15Rnd_W1866_Slug">15Rnd Winchester Slugs</OPTION>
 						<OPTION VALUE="30Rnd_762x39_AK47">30Rnd_762x39_AK47</OPTION>
 						<OPTION VALUE="30Rnd_545x39_AK">30Rnd_545x39_AK</OPTION>
 						<OPTION VALUE="30Rnd_545x39_AKSD">30Rnd_545x39_AKSD</OPTION>
@@ -414,7 +416,7 @@ if ($_SESSION['tier'] > 3) {
 						<OPTION VALUE="HandChemRed">Chemlight (Red)</OPTION>
 						<OPTION VALUE="ItemSandbag">Sandbag</OPTION>
 						<OPTION VALUE="ItemTankTrap">Tank Trap</OPTION>
-						<!--<OPTION VALUE="ItemWire">Wire Fencing</OPTION>-->
+						<OPTION VALUE="ItemWire">Wire Fencing</OPTION>
 						<OPTION VALUE="PartWoodPile">Firewood</OPTION>
 						<OPTION VALUE="PartWheel">Wheel</OPTION>
 						<OPTION VALUE="PartFueltank">Fuel Tank</OPTION>
@@ -521,9 +523,9 @@ if ($_SESSION['tier'] > 3) {
 				<div id="current_backpack_inventory">
 				
 				</div>
-				<div id="backpack_slots" class="inventory_tables">
+				<!--<div id="backpack_slots" class="inventory_tables">
 
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<div id="skin_preview">
@@ -538,7 +540,7 @@ if ($_SESSION['tier'] > 3) {
 			<div id="current_main_inventory">
 			<h2>Main Inventory  <span class="slots_num_text">(12 slots)</span></h2>
 				<span id="current_main_items"></span>
-				<div class="inventory_tables">
+				<!--<div class="inventory_tables">
 					<table>
 						<tr>
 							<td></td><td></td><td></td>
@@ -553,13 +555,13 @@ if ($_SESSION['tier'] > 3) {
 							<td></td><td></td><td></td>
 						</tr>
 					</table>
-				</div>
+				</div>-->
 			</div>
 			
 			<div id="current_side_inventory">
 			<h2>Side Inventory<span class="slots_num_text">(8 slots)</span></h2>
 				<span id="current_side_items"></span>
-				<div class="inventory_tables">
+				<!--<div class="inventory_tables">
 					<table>
 						<tr>
 							<td></td><td></td><td></td><td></td>
@@ -568,7 +570,7 @@ if ($_SESSION['tier'] > 3) {
 							<td></td><td></td><td></td><td></td>
 						</tr>
 					</table>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>
