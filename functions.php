@@ -12,10 +12,10 @@ function getPlayerDataID($playerid,$dbhandle) {
 	// Bliss Schema v0.20
 	//$qry = $dbhandle->prepare("SELECT `survivor`.`id`, `survivor`.`unique_id`, `profile`.`name`, `survivor`.`zombie_kills`, `survivor`.`survivor_kills`, `survivor`.`bandit_kills`, `survivor`.`start_time`, `survivor`.`last_update`, `survivor`.`pos` FROM survivor, profile where `survivor`.`unique_id` = `profile`.`unique_id` AND `survivor`.`is_dead`=0 AND `survivor`.`unique_id`=?");
 	//Bliss Schema v0.26
-	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE AND s.unique_id=? ORDER BY last_updated DESC LIMIT 50");
+	$qry = $dbhandle->prepare("SELECT s.id, s.unique_id, p.name, s.zombie_kills, s.survivor_kills, s.bandit_kills, s.start_time, s.last_updated, s.worldspace, s.is_dead, s.world_id, timestampdiff(hour, s.start_time, s.last_updated) as hours_old FROM profile p LEFT JOIN survivor s ON p.unique_id = s.unique_id WHERE s.unique_id LIKE ? ORDER BY last_updated DESC LIMIT 50");
 	// Old HIVE Schema
 	//$qry = $dbhandle->prepare("SELECT id,uid,name,kills,survivor_kills,bkills,survival,lastupdate FROM main WHERE uid=? AND death=0");
-	$qry->execute(array($playerid));
+	$qry->execute(array('%'.$playerid.'%'));
 	$result = $qry->fetchAll(PDO::FETCH_NUM);
 	return $result;
 }
@@ -121,7 +121,7 @@ function parseResults($results) {
 	$_count = 0;
 	$result_string = '';
 	foreach($results as $row) {
-		$_count = $_count + 1;
+		$_count++;
 		if ($_count != 1) {
 			$result_string .= '<~~~>';
 		}
